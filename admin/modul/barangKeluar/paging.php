@@ -37,6 +37,7 @@ while ($row = mysqli_fetch_array($data_rak)) {
         <td><?php echo $row['stok']; ?></td>
         <td><?php echo $row['jml_ajuan']; ?></td>
         <td><?php echo $row['jml_keluar']; ?></td>
+        <td><?php echo $row['keterangan']; ?></td>
         <td><?php echo $row['admin']; ?></td>
         <td>
             <a href="index.php?m=barangKeluar&s=hapus&no_brg_out=<?php echo $row['no_brg_out']; ?>" onclick="return confirm('Yakin Akan dihapus?')">

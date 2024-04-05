@@ -28,19 +28,19 @@ $jamSekarang = date("h:i a");
   <!-- tema css -->
   <link href="../css/tampilanadmin.css" rel="stylesheet">
   <style>
-     footer {
-       position: fixed;
-       left: 0;
-       bottom: 0;
-       width: 100%;
-       background-color: #f8f9fa;
-       /* Warna latar belakang footer */
-       color: #333;
-       /* Warna teks footer */
-       padding: 10px 0;
-       /* Padding atas dan bawah footer */
-     }
-   </style>
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #f8f9fa;
+      /* Warna latar belakang footer */
+      color: #333;
+      /* Warna teks footer */
+      padding: 10px 0;
+      /* Padding atas dan bawah footer */
+    }
+  </style>
 </head>
 
 <body>
@@ -180,8 +180,9 @@ $jamSekarang = date("h:i a");
 									nama_brg:'" . addslashes($row['nama_brg']) . "',
 									stok:'" . addslashes($row['stok']) . "',
 									jml_ajuan:'" . addslashes($row['jml_ajuan']) . "',
+                  keterangan:'" . addslashes($row['keterangan']) . "',
 									val:'" . addslashes($row['val']) . "'
-
+                  
 								};";
                   }
 
@@ -197,9 +198,10 @@ $jamSekarang = date("h:i a");
                       document.getElementById('prd_stokbrga').value = prdName[id].stok;
                       document.getElementById('prd_jmlajuan').value = prdName[id].jml_ajuan;
                       document.getElementById('prd_val').value = prdName[id].val;
-
+                      document.getElementById('prd_keterangan').value = prdName[id].keterangan; // Menampilkan keterangan
                     }		
                   </script>
+
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Tanggal Ajuan</label>
@@ -244,13 +246,18 @@ $jamSekarang = date("h:i a");
                   <label for="exampleInputEmail1">Jumlah Ajuan</label>
                   <input type="text" class="form-control" readonly="" id="prd_jmlajuan" name="jml_ajuan"
                     aria-describedby="emailHelp" placeholder="Jumlah Ajuan">
-
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Jumlah Keluar</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" name="jml_keluar"
                     aria-describedby="emailHelp" placeholder="Masukkan Jumlah Keluar">
                   <small id="emailHelp" class="form-text text-muted">Masukkan Jumlah Keluar</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Keterangan</label>
+                  <input type="text" class="form-control" id="prd_keterangan" name="keterangan" aria-describedby="emailHelp"
+                    placeholder="Masukkan Keterangan">
+                  <small id="emailHelp" class="form-text text-muted">Masukkan Keterangan</small>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Admin</label>
@@ -267,13 +274,13 @@ $jamSekarang = date("h:i a");
         </div>
       </div>
       <div class="row">
-         <center>
-           <form action="" method="POST">
-             <label>Cari No Barang Keluar</label>
-             <input type="text" name="cari"> <button type="submit" name="go" class="btn btn-success">Cari Barang</button>
-           </form>
-         </center>
-       </div>
+        <center>
+          <form action="" method="POST">
+            <label>Cari No Barang Keluar</label>
+            <input type="text" name="cari"> <button type="submit" name="go" class="btn btn-success">Cari Barang</button>
+          </form>
+        </center>
+      </div>
       <div class="row">
         <div class="table-responsive table--no-card m-b-30">
           <table class="table table-bordered table-striped table-earning">
@@ -289,17 +296,15 @@ $jamSekarang = date("h:i a");
                 <th>stok</th>
                 <th>jml_ajuan</th>
                 <th>jml_keluar</th>
+                <th>Keterangan</th>
                 <th>admin</th>
                 <th>Aksi</th>
-
               </tr>
             </thead>
             <tbody>
 
               <?php
-
               include 'paging.php';
-
               ?>
             </tbody>
           </table>
@@ -335,19 +340,20 @@ $jamSekarang = date("h:i a");
 
   <!-- Footer -->
   <footer class="text-center">
-  <div class="footer-below">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p class="text-muted" style="font-size: 16px;">Copyright &copy;
-            <script>
-              document.write(new Date().getFullYear());
-            </script> X. All rights reserved</p>
+    <div class="footer-below">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="text-muted" style="font-size: 16px;">Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script> X. All rights reserved
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 
   <!-- jQuery -->
@@ -357,4 +363,5 @@ $jamSekarang = date("h:i a");
   <script src="../vendor/css/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>

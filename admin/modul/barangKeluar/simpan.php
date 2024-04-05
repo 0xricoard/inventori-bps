@@ -12,6 +12,7 @@ if (isset($_POST['simpan'])) {
 	$stok = $_POST['stok'];
 	$jml_ajuan = $_POST['jml_ajuan'];
 	$jml_keluar = $_POST['jml_keluar'];
+	$keterangan = $_POST['keterangan'];
 	$admin = $_POST['admin'];
 	
 

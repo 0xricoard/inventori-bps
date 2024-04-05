@@ -75,7 +75,7 @@
               </li>
                             <li>
                 <a href="?m=supplier&s=awal">
-                  <i class="fa fa-building"></i> Data Supplier
+                  <i class="fa fa-building"></i> Data UAKPB
                 </a>
               </li>
                             <li>
@@ -88,8 +88,7 @@
                   <i class="fa fa-archive"></i> Data Barang
                 </a>
               </li>
-
-                            <li>
+              <li>
                 <a href="?m=barangKeluar&s=awal">
                   <i class="fa fa-cart-arrow-down"></i> Data Barang Keluar
                 </a>

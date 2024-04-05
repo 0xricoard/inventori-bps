@@ -185,6 +185,12 @@ $jamSekarang = date("h:i a");
                   <small id="emailHelp" class="form-text text-muted">Masukkan Jumlah Permintaan</small>
                 </div>
                 <div class="form-group">
+                  <label for="exampleInputEmail1">Keterangan</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="keterangan"
+                    aria-describedby="emailHelp" placeholder="Masukkan Keterangan">
+                  <small id="emailHelp" class="form-text text-muted">Masukkan Keterangan Pengajuan</small>
+                </div>
+                <div class="form-group">
                   <label for="exampleInputEmail1">Petugas</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $r['nama']; ?>"
                     readonly="" name="petugas" aria-describedby="emailHelp" placeholder="Masukkan Nama Admin">
@@ -201,15 +207,16 @@ $jamSekarang = date("h:i a");
 
       <div class="row">
         <div class="table-responsive table--no-card m-b-30">
-          <table class="table table-borderless table-striped table-earning">
+          <table class="table table-bordered table-striped table-earning">
             <thead>
               <tr>
                 <th>No Ajuan</th>
                 <th>Tanggal</th>
                 <th>Kode Barang</th>
                 <th>Nama Barang</th>
-                <th>Jumlah Ajuan Barang Keluar</th>
-                <th>petugas</th>
+                <th>Jumlah Permintaan Barang Keluar</th>
+                <th>Keterangan</th>
+                <th>Petugas</th>
                 <th>Validasi</th>
                 <th>Aksi</th>
               </tr>
