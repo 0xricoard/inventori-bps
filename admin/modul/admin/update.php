@@ -45,7 +45,7 @@ if (isset($_POST['simpan'])) {
                   confirmButtonText: 'OK'
                 }).then((result) => {
                   if (result.isConfirmed) {
-                    window.location.href = 'index.php?m=awal';
+                    window.location.href = 'index.php?m=admin';
                   }
                 });
               </script>";
