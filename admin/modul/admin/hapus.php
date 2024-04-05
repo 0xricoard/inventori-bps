@@ -18,7 +18,11 @@ if(isset($_GET['id_admin'])){
 	
 	$foto=$r['foto'];
 	// hapus file gambar yang berhubungan dengan berita tersebut
-	unlink("../images/admin/$foto");
+	if (file_exists("../images/admin/$foto")) {
+		unlink("../images/admin/$foto");
+	} else {
+		echo "File gambar tidak ditemukan.";
+	}	
 	$sql1   = "DELETE FROM tb_admin WHERE id_admin='$id'";
 	$hapus1 = mysqli_query($koneksi,$sql1);
 	if($hapus1){
