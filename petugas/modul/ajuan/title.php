@@ -214,7 +214,7 @@ $jamSekarang = date("h:i a");
                 <th>Tanggal</th>
                 <th>Kode Barang</th>
                 <th>Nama Barang</th>
-                <th>Jumlah Permintaan Barang Keluar</th>
+                <th>Jumlah Permintaan Keluar</th>
                 <th>Keterangan</th>
                 <th>Petugas</th>
                 <th>Validasi</th>
