@@ -1,5 +1,4 @@
 <?php
-
 date_default_timezone_set("Asia/Jakarta");
 $tanggalSekarang = date("Y-m-d");
 $jamSekarang = date("h:i a");
@@ -255,9 +254,9 @@ $jamSekarang = date("h:i a");
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Keterangan</label>
-                  <input type="text" class="form-control" id="prd_keterangan" name="keterangan" aria-describedby="emailHelp"
-                    placeholder="Masukkan Keterangan">
-                  <small id="emailHelp" class="form-text text-muted">Masukkan Keterangan</small>
+                  <input type="text" class="form-control" id="prd_keterangan" name="keterangan"
+                    aria-describedby="emailHelp" placeholder="Masukkan Keterangan">
+                  <small id="emailHelp" class="form-text text-muted">Keterangan</small>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Admin</label>
