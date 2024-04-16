@@ -191,6 +191,12 @@ $jamSekarang = date("h:i");
                 <small id="emailHelp" class="form-text text-muted">Masukkan Jam</small>
               </div>
               <div class="form-group">
+                <label for="exampleInputEmail1">Keterangan</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="keterangan"
+                  aria-describedby="emailHelp" placeholder="Masukkan Keterangan">
+                <small id="emailHelp" class="form-text text-muted">Masukkan Keterangan</small>
+              </div>
+              <div class="form-group">
                 <label for="exampleInputEmail1">Petugas</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $r['nama']; ?>"
                   readonly="" name="petugas" aria-describedby="emailHelp" placeholder="Masukkan Nama Admin">
@@ -219,6 +225,7 @@ $jamSekarang = date("h:i");
               <th>Stok</th>
               <th>Jumlah Masuk</th>
               <th>Jam</th>
+              <th>Keterangan</th>
               <th>Petugas</th>
               <th>Aksi</th>
             </tr>

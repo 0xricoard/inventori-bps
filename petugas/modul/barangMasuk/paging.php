@@ -29,6 +29,7 @@ while ($row=mysqli_fetch_array($data_brg_in)) {
                                                 <td><?php echo $row['stok']; ?></td>
                                                 <td><?php echo $row['jml_masuk']; ?></td>
                                                 <td><?php echo $row['jam']; ?></td>
+                                                <td><?php echo $row['keterangan']; ?></td>
                                                 <td><?php echo $row['petugas']; ?></td>
                                                 <td><a href="index.php?m=barangMasuk&s=hapus&id_brg_in=<?php echo $row['id_brg_in'];?>" onclick="return confirm('Yakin Akan dihapus?')"><button class="btn btn-danger">Hapus</button></a></td>
                                             </tr>
