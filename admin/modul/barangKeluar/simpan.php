@@ -28,7 +28,7 @@ if (isset($_POST['simpan'])) {
 	$update = ("UPDATE tb_barang SET stok = '". $kurangStok ."' WHERE kode_brg = '". $kode_brg ."' ");
 	$result = mysqli_query($koneksi, $update) or die(mysql_error());
 
-	$simpan		= ("INSERT INTO tb_barang_out () VALUES ('$no_brg_out','$no_ajuan','$tanggal_ajuan','$tanggal_out','$petugas','$kode_brg','$nama_brg', '$stok', '$jml_ajuan', '$jml_keluar', '$admin')");
+	$simpan		= ("INSERT INTO tb_barang_out () VALUES ('$no_brg_out','$no_ajuan','$tanggal_ajuan','$tanggal_out','$petugas','$kode_brg','$nama_brg', '$stok', '$jml_ajuan', '$jml_keluar', '$keterangan', '$admin')");
 	$result		= mysqli_query($koneksi, $simpan);
 
 	$sqlval = "UPDATE tb_ajuan SET val='0', stok='" . $kurangStok . "' WHERE no_ajuan = '". $no_ajuan ."' ";

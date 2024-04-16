@@ -201,7 +201,7 @@
                    <small id="emailHelp" class="form-text text-muted"></small>
                  </div>
                  <div class="form-group">
-                   <label for="exampleInputEmail1">Supplier</label>
+                   <label for="exampleInputEmail1">UAKPB</label>
                    <select class="form-control" name="supplier" required="">
                      <?php
                       include '../koneksi.php';

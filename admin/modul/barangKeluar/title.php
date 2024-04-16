@@ -2,6 +2,7 @@
 date_default_timezone_set("Asia/Jakarta");
 $tanggalSekarang = date("Y-m-d");
 $jamSekarang = date("h:i a");
+$nomor_barang_keluar = mt_rand(1000, 9999);
 ?>
 <!DOCTYPE html>
 <html>
@@ -137,7 +138,6 @@ $jamSekarang = date("h:i a");
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Tambah data
       </button>
-
       <!-- Modal -->
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -153,9 +153,10 @@ $jamSekarang = date("h:i a");
               <form action="?m=barangKeluar&s=simpan" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="exampleInputEmail1">No Barang Keluar</label>
+                  <!-- Isi nilai input nomor barang keluar dengan nomor yang dihasilkan -->
                   <input type="text" class="form-control" id="exampleInputEmail1" name="no_brg_out"
-                    aria-describedby="emailHelp" placeholder="Masukkan Nomor Barang Keluar">
-                  <small id="emailHelp" class="form-text text-muted">Masukkan No Barang Keluar</small>
+                    aria-describedby="emailHelp" value="<?php echo $nomor_barang_keluar; ?>">
+                  <small id="emailHelp" class="form-text text-muted">Nomor Barang Keluar</small>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nomor Ajuan</label>
@@ -196,9 +197,21 @@ $jamSekarang = date("h:i a");
                       document.getElementById('prd_namabrg').value = prdName[id].nama_brg;
                       document.getElementById('prd_stokbrga').value = prdName[id].stok;
                       document.getElementById('prd_jmlajuan').value = prdName[id].jml_ajuan;
-                      document.getElementById('prd_val').value = prdName[id].val;
                       document.getElementById('prd_keterangan').value = prdName[id].keterangan; // Menampilkan keterangan
-                    }		
+                      document.getElementById('prd_val').value = prdName[id].val;
+
+                      // AJAX request to fetch keterangan from tb_ajuan
+                      var xhr = new XMLHttpRequest();
+                      xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                          var response = JSON.parse(xhr.responseText);
+                          document.getElementById('prd_keterangan').value = response.keterangan;
+                        }
+                      };
+                      xhr.open('GET', 'get_keterangan.php?id=' + id, true);
+                      xhr.send();
+                    }
+
                   </script>
 
                 </div>
@@ -255,7 +268,7 @@ $jamSekarang = date("h:i a");
                 <div class="form-group">
                   <label for="exampleInputEmail1">Keterangan</label>
                   <input type="text" class="form-control" id="prd_keterangan" name="keterangan"
-                    aria-describedby="emailHelp" placeholder="Masukkan Keterangan">
+                    aria-describedby="emailHelp" placeholder="Masukkan Keterangan" readonly>
                   <small id="emailHelp" class="form-text text-muted">Keterangan</small>
                 </div>
                 <div class="form-group">
