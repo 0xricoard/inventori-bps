@@ -87,12 +87,12 @@ if ( !isset($_SESSION["idinv"])) {
               </li>
                             <li>
                 <a href="?m=supplier&s=awal">
-                  <i class="fa fa-building"></i> Data Supplier
+                  <i class="fa fa-building"></i> Data UAKPB
                 </a>
               </li>
                             <li>
                 <a href="?m=rak&s=awal">
-                  <i class="fa fa-cubes"></i> Data Rak
+                  <i class="fa fa-cubes"></i> Data TIM
                 </a>
               </li>
                             <li>
@@ -168,7 +168,7 @@ if ( !isset($_SESSION["idinv"])) {
                                 $r=mysqli_fetch_assoc($query);
                                 echo "<h3>".$r['jsup']."</h3>";
                                 ?>
-                                <div>Jumlah Supplier</div>
+                                <div>Jumlah UAKPB</div>
                                 </div>
                             </div>
                         </div>
