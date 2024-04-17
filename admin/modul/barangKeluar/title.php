@@ -311,14 +311,14 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
                 <th>No Ajuan</th>
                 <th>Tanggal Ajuan</th>
                 <th>Tanggal Keluar</th>
-                <th>petugas</th>
-                <th>kode_brg</th>
-                <th>nama_brg</th>
+                <th>Petugas</th>
+                <th>Kode Barang</th>
+                <th>Nama Barang</th>
                 <th>stok</th>
-                <th>jml_ajuan</th>
-                <th>jml_keluar</th>
+                <th>Jumlah Ajuan</th>
+                <th>Jumlah Keluar</th>
                 <th>Keterangan</th>
-                <th>admin</th>
+                <th>Admin</th>
                 <th>Aksi</th>
               </tr>
             </thead>
