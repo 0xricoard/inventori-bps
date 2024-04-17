@@ -1,157 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
- <!-- boootstrap -->
-    <link href="vendor/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-      <link href="vendor/css/bootstrap/bootstrap.css" rel="stylesheet">
-
-    <!-- icon dan fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- tema css -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Inventory Barang BPS Kab. Pekalongan</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link href="css/tampilan.css" rel="stylesheet">
-	<title>Inventory Barang</title>
+    <style>
+      .carousel-item img {
+        width: 50%; /* Set the width to 100% */
+        height: auto; /* Set the height to auto */
+        margin: auto; /* Center the image */
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
 
-
-<!-- Menu -->
-    <nav class="navbar navbar-default navbar-fixed-top navbar-custom  ">
-      <div class="container">
-        <div class="navbar-header page-scroll">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">navigation</span> Menu <i class="fa fa-bars"></i>
-          </button>
-          <a class="navbar-brand">Inventory</a>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Sistem Inventory Barang BPS Kab. Pekalongan</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#beranda">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#login">Masuk</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tentang">Tentang</a>
+                </li>
+            </ul>
         </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="page-scroll">
-              <a href="index.php">Beranda</a>
-            </li>
-            <li class="page-scroll">
-              <a href="#login">Masuk</a>
-            </li>
-            <li class="page-scroll">
-              <a href="#tentang">Tentang</a>
-            </li>
-          </ul>
-        </div>
-
- 
-
-      </div>
-    </nav>	
-
-               <!-- Header atau gambar-->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="images/logistic1.jpg" alt="First slide">
-        </div>
-        <div class="item">
-          <img class="second-slide" src="images/logistic2.jpg" alt="Second slide">
-        </div>
-        <div class="item">
-          <img class="third-slide" src="images/logistic3.jpg" alt="Third slide">
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-       
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        
-        <span class="sr-only">Next</span>
-      </a>
     </div>
+</nav>
 
-   
-     <!-- Login Feature Section Start -->
-
-    <section id="login" class="section-margin" style="margin-bottom: 100pt;">
-      
-        <div class="row content" id="login">
-      <div class="col-lg-12 danger text-center zero-panel">
-        <div class="col-lg-12 zero-panel-content">
-          <h1> MASUK SEBAGAI .... </h1>
-        
+  <section id="beranda" class="section-margin">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="images/logistic1.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="images/logistic2.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="images/logistic3.jpg" alt="Third slide">
+            </div>
         </div>
-        <br>
-        
-          <a href="admin/login.php" target="_blank"><button class="btn btn-primary" style="size: 50px;">ADMIN</button></a>
-          <br><br>
-           <a href="petugas/login_petugas.php" target="_blank"><button class="btn btn-warning" style="size: 50px;">PETUGAS</button></a>
-          
-          
-          
-        
-      </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    </section>
+  </section>
 
-     <section id="tentang" class="section-margin" style="margin-bottom: 100pt;">
-      
-        <div class="row content" id="login">
-      <div class="col-lg-12 danger text-center zero-panel">
-        <div class="col-lg-12 zero-panel-content">
-          <div class="jumbotron">
-          <h1> Tentang Website Inventory </h1><br>
-          <p>Website inventory adalah aplikasi berbasis Web untuk mengatur dan mencatat keluar masuk barang di masing-masing gudang dalam satu perusahaan, yang meliputi pencatatan barang masuk dari Supplier dan pencatatan barang keluar. </p>  
-          </div>
-          
-        
+<!-- Login Section -->
+<section id="login" class="section-margin">
+    <div class="container text-center">
+        <h2 class="section-heading">Masuk Sebagai ....</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <a href="admin/login.php" target="_blank" class="btn btn-primary btn-lg btn-block mb-3">ADMIN</a>
+            </div>
+            <div class="col-lg-4">
+                <a href="petugas/login_petugas.php" target="_blank" class="btn btn-warning btn-lg btn-block">PETUGAS</a>
+            </div>
         </div>
-        <br>
-        
-         
-          
-          
-          
-        
-      </div>
     </div>
-    </section>
-
-    <!-- footer -->
-
-<footer class="footer container">
-  
-<section class="col-sm-12" style="margin-top: 50px;">
-<div class="col-lg-10 col-lg-offset-1 text-center">
-<br>
-<ul class="list-inline">
-<li>
-<a href="https://www.facebook.com/zibran.vitadiyatama.7/" target="_blank"><i class="fa fa-facebook fa-fw fa-2x"></i></a>
-</li>
-<li>
-<a href="https://github.com/ZibranovSky" target="_blank"><i class="fa fa-github fa-fw fa-2x"></i></a>
-</li>
-<li>
-<a href="https://www.linkedin.com/in/muhammad-zibran-fitadiyatama-6550801a9/" target="_blank"><i class="fa fa-linkedin fa-fw fa-2x"></i></a>
-</li>
-</ul>
-<hr class="medium">
-<p class="text-muted" style="font-size: 16px;">Copyright &copy;<script>document.write(new Date().getFullYear());</script> X All rights reserved</p>
-</div>
 </section>
+
+<!-- Tentang Section -->
+<section id="tentang" class="section-margin bg-light">
+    <div class="container text-center">
+        <h2 class="section-heading">Tentang Website Inventory</h2>
+        <p class="text-muted">Website inventory adalah aplikasi berbasis Web untuk mengatur dan mencatat keluar masuk barang di masing-masing gudang dalam satu perusahaan, yang meliputi pencatatan barang masuk dari Supplier dan pencatatan barang keluar.</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer bg-dark text-light">
+    <div class="container text-center">
+        <ul class="list-inline mb-3">
+            <li class="list-inline-item">
+                <a href="https://www.facebook.com/0xricoard" target="_blank" class="text-light"><i class="fab fa-facebook fa-2x"></i></a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://github.com/0xricoard" target="_blank" class="text-light"><i class="fab fa-github fa-2x"></i></a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/0xricoard" target="_blank" class="text-light"><i class="fab fa-linkedin fa-2x"></i></a>
+            </li>
+        </ul>
+        <hr class="medium">
+        <p class="text-light">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Sistem Inventory Barang BPS. All rights reserved</p>
+    </div>
 </footer>
 
- <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-
-    <!--include-->
-    <script src="vendor/css/js/bootstrap.min.js"></script>
 </body>
 </html>
