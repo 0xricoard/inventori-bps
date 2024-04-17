@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 04, 2024 at 04:25 AM
+-- Generation Time: Apr 16, 2024 at 07:19 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_admin` (
   `id_admin` int NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `telepon` varchar(255) NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `telepon` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `foto` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
@@ -42,7 +42,6 @@ CREATE TABLE `tb_admin` (
 
 INSERT INTO `tb_admin` (`id_admin`, `username`, `password`, `nama`, `telepon`, `foto`) VALUES
 (12, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '0812838281', '22092020020607employee1.png'),
-(20, 'mbahgama', 'd41d8cd98f00b204e9800998ecf8427e', 'mbahgama', '11111', '03042024055115OIP.jpg'),
 (22, 'putri', 'd41d8cd98f00b204e9800998ecf8427e', 'putri', '82040840304', '03042024021945logo-stmik-wp.png');
 
 -- --------------------------------------------------------
@@ -53,12 +52,13 @@ INSERT INTO `tb_admin` (`id_admin`, `username`, `password`, `nama`, `telepon`, `
 
 CREATE TABLE `tb_ajuan` (
   `no_ajuan` int NOT NULL,
-  `tanggal` varchar(255) NOT NULL,
-  `kode_brg` varchar(11) NOT NULL,
-  `nama_brg` varchar(255) NOT NULL,
+  `tanggal` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `kode_brg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `nama_brg` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `stok` int NOT NULL,
   `jml_ajuan` int NOT NULL,
-  `petugas` varchar(255) NOT NULL,
+  `keterangan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `petugas` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `val` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
@@ -66,8 +66,10 @@ CREATE TABLE `tb_ajuan` (
 -- Dumping data for table `tb_ajuan`
 --
 
-INSERT INTO `tb_ajuan` (`no_ajuan`, `tanggal`, `kode_brg`, `nama_brg`, `stok`, `jml_ajuan`, `petugas`, `val`) VALUES
-(12353535, '2024-04-03', '1111', 'ACER LAPTOP', 91, 10, 'pegawai', 0);
+INSERT INTO `tb_ajuan` (`no_ajuan`, `tanggal`, `kode_brg`, `nama_brg`, `stok`, `jml_ajuan`, `keterangan`, `petugas`, `val`) VALUES
+(213233, '2024-04-05', '1.01.03.02.001.00000', 'Kertas HVS kwarto', 64, 10, '', 'pegawai', 0),
+(12353535, '2024-04-03', '1111', 'ACER LAPTOP', 91, 10, '', 'pegawai', 0),
+(89798709, '2024-04-05', '1.01.03.02.001.00000', 'Kertas HVS kwarto', 63, 1, 'Pembelian', 'pegawai', 0);
 
 -- --------------------------------------------------------
 
@@ -77,22 +79,21 @@ INSERT INTO `tb_ajuan` (`no_ajuan`, `tanggal`, `kode_brg`, `nama_brg`, `stok`, `
 
 CREATE TABLE `tb_barang` (
   `id` int NOT NULL,
-  `kode_brg` varchar(255) NOT NULL,
-  `nama_brg` varchar(255) NOT NULL,
-  `satuan` varchar(20) NOT NULL,
+  `rak` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `kode_brg` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `nama_brg` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `satuan` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `stok` int NOT NULL,
-  `rak` varchar(255) NOT NULL,
-  `supplier` varchar(255) NOT NULL
+  `supplier` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `tb_barang`
 --
 
-INSERT INTO `tb_barang` (`id`, `kode_brg`, `nama_brg`, `satuan`, `stok`, `rak`, `supplier`) VALUES
-(1, '1111', 'ACER LAPTOP', 'buah', 91, 'UMUM', 'BPS Kabupaten Pekalongan'),
-(10, 'A011', 'KERTAS A4', 'lembar', 101, 'UMUM', 'BPS Kabupaten Pekalongan'),
-(11, '1.01.03.02.001.00000', 'Kertas HVS kwarto', '70 gram', 64, 'UMUM', 'BPS Kabupaten Pekalongan');
+INSERT INTO `tb_barang` (`id`, `rak`, `kode_brg`, `nama_brg`, `satuan`, `stok`, `supplier`) VALUES
+(1, 'UMUM', '1111', 'ACER LAPTOP', 'buah', 93, 'BPS Kabupaten Pekalongan'),
+(11, 'UMUM', '1.01.03.02.001.00000', 'Kertas HVS kwarto', '70 gram', 63, 'BPS Kabupaten Pekalongan');
 
 -- --------------------------------------------------------
 
@@ -104,21 +105,23 @@ CREATE TABLE `tb_barang_in` (
   `id_brg_in` int NOT NULL,
   `tanggal` date NOT NULL,
   `noinv` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `supplier` varchar(255) NOT NULL,
-  `kode_brg` varchar(11) NOT NULL,
-  `nama_brg` varchar(255) NOT NULL,
+  `supplier` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `kode_brg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `nama_brg` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `stok` int NOT NULL,
   `jml_masuk` int NOT NULL,
-  `jam` varchar(255) NOT NULL,
-  `petugas` varchar(255) NOT NULL
+  `jam` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `keterangan` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `petugas` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `tb_barang_in`
 --
 
-INSERT INTO `tb_barang_in` (`id_brg_in`, `tanggal`, `noinv`, `supplier`, `kode_brg`, `nama_brg`, `stok`, `jml_masuk`, `jam`, `petugas`) VALUES
-(10, '2024-04-03', 'INV/000/XXXX', 'PT budi beriman sangat', '1111', 'ACER LAPTOP', 92, 1, '09:56 am', 'pegawai');
+INSERT INTO `tb_barang_in` (`id_brg_in`, `tanggal`, `noinv`, `supplier`, `kode_brg`, `nama_brg`, `stok`, `jml_masuk`, `jam`, `keterangan`, `petugas`) VALUES
+(12, '2024-04-05', 'A1/EWD/WEDEW', 'BPS Kabupaten Pekalongan', '1.01.03.02.001.00000', 'Kertas HVS kwarto', 64, 10, '10:32', '', 'pegawai'),
+(13, '2024-04-16', 'ASUS/0909/1111', 'BPS Kabupaten Pekalongan', '1111', 'ACER LAPTOP', 92, 1, '09:42', 'Penambahan', 'pegawai');
 
 -- --------------------------------------------------------
 
@@ -129,24 +132,24 @@ INSERT INTO `tb_barang_in` (`id_brg_in`, `tanggal`, `noinv`, `supplier`, `kode_b
 CREATE TABLE `tb_barang_out` (
   `no_brg_out` int NOT NULL,
   `no_ajuan` int NOT NULL,
-  `tanggal_ajuan` varchar(255) NOT NULL,
-  `tanggal_out` varchar(255) NOT NULL,
-  `petugas` varchar(255) NOT NULL,
-  `kode_brg` varchar(11) NOT NULL,
-  `nama_brg` varchar(255) NOT NULL,
+  `tanggal_ajuan` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `tanggal_out` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `petugas` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `kode_brg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `nama_brg` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `stok` int NOT NULL,
   `jml_ajuan` int NOT NULL,
   `jml_keluar` int NOT NULL,
-  `admin` varchar(255) NOT NULL
+  `keterangan` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `admin` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `tb_barang_out`
 --
 
-INSERT INTO `tb_barang_out` (`no_brg_out`, `no_ajuan`, `tanggal_ajuan`, `tanggal_out`, `petugas`, `kode_brg`, `nama_brg`, `stok`, `jml_ajuan`, `jml_keluar`, `admin`) VALUES
-(22424, 12353535, '2024-04-03', '2024-04-03', 'pegawai', '1111', 'ACER LAPTOP', 92, 10, 1, 'admin'),
-(1121313, 12121221, '2024-04-03', '2024-04-03', 'pegawai', '1111', 'ACER LAPTOP', 93, 1, 1, 'admin');
+INSERT INTO `tb_barang_out` (`no_brg_out`, `no_ajuan`, `tanggal_ajuan`, `tanggal_out`, `petugas`, `kode_brg`, `nama_brg`, `stok`, `jml_ajuan`, `jml_keluar`, `keterangan`, `admin`) VALUES
+(7155, 89798709, '2024-04-05', '2024-04-16', 'pegawai', '1.01.03.02.001.00000', 'Kertas HVS kwarto', 64, 1, 1, 'Pembelian', 'admin');
 
 -- --------------------------------------------------------
 
@@ -167,8 +170,7 @@ CREATE TABLE `tb_petugas` (
 --
 
 INSERT INTO `tb_petugas` (`id_petugas`, `username`, `password`, `nama`, `telepon`) VALUES
-(20, 'pegawai', '047aeeb234644b9e2d4138ed3bc7976a', 'pegawai', '11111'),
-(21, '11111', 'b59c67bf196a4758191e42f76670ceba', 'xxxxxxxxx', '11111');
+(20, 'pegawai', '047aeeb234644b9e2d4138ed3bc7976a', 'pegawai', '11111');
 
 -- --------------------------------------------------------
 
@@ -178,7 +180,7 @@ INSERT INTO `tb_petugas` (`id_petugas`, `username`, `password`, `nama`, `telepon
 
 CREATE TABLE `tb_rak` (
   `id_rak` int NOT NULL,
-  `nama_rak` varchar(255) NOT NULL
+  `nama_rak` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
@@ -201,10 +203,10 @@ INSERT INTO `tb_rak` (`id_rak`, `nama_rak`) VALUES
 
 CREATE TABLE `tb_sup` (
   `id_sup` int NOT NULL,
-  `nama_sup` varchar(255) NOT NULL,
-  `kontak_sup` varchar(255) NOT NULL,
-  `alamat_sup` text NOT NULL,
-  `telepon_sup` varchar(255) NOT NULL
+  `nama_sup` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `kontak_sup` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `alamat_sup` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `telepon_sup` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
@@ -280,7 +282,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_ajuan`
 --
 ALTER TABLE `tb_ajuan`
-  MODIFY `no_ajuan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12353536;
+  MODIFY `no_ajuan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89798710;
 
 --
 -- AUTO_INCREMENT for table `tb_barang`
@@ -292,7 +294,7 @@ ALTER TABLE `tb_barang`
 -- AUTO_INCREMENT for table `tb_barang_in`
 --
 ALTER TABLE `tb_barang_in`
-  MODIFY `id_brg_in` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_brg_in` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_petugas`
