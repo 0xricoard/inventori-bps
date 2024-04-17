@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><?php echo $judul; ?></title>
-
     <!-- boootstrap -->
     <link href="../vendor/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
@@ -19,7 +18,7 @@
 
     <!-- tema css -->
     <link href="../css/tampilanadmin.css" rel="stylesheet">
-
+  
   </head>
   <body>
     <!-- Menu -->
