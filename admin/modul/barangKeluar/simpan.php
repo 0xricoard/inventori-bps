@@ -1,5 +1,20 @@
-<?php 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>
+		<?php echo $judul; ?>
+	</title>
+	<!-- SweetAlert2 -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
 
+<?php 
 if (isset($_POST['simpan'])) {
 	include('../koneksi.php');
 	$no_brg_out = $_POST['no_brg_out'];
@@ -20,7 +35,16 @@ if (isset($_POST['simpan'])) {
 	$cek = mysqli_fetch_row($sql_cek);
 
 	if ($cek) {
-		echo "<script>alert('No barang Keluar sudah ada')</script>";
+		echo '<script>
+		        Swal.fire({
+		          icon: "error",
+		          title: "No barang keluar sudah ada",
+		          showConfirmButton: false,
+		          timer: 1500
+		        }).then((result) => {
+		            window.history.back();
+		        });
+		      </script>';
 		echo '<script>window.history.back()</script>';
 	}else {
 	$kurangStok 	= $stok - $jml_keluar;
@@ -32,18 +56,32 @@ if (isset($_POST['simpan'])) {
 	$result		= mysqli_query($koneksi, $simpan);
 
 	$sqlval = "UPDATE tb_ajuan SET val='0', stok='" . $kurangStok . "' WHERE no_ajuan = '". $no_ajuan ."' ";
-
 	if (mysqli_query($koneksi, $sqlval)) {
-		header("location: ?m=barangKeluar&s=awal");	
-	
-	}else{
-		echo "Penyimpanan data Gagal";
+		echo '<script>
+				Swal.fire({
+				  icon: "success",
+				  title: "Data berhasil disimpan",
+				  showConfirmButton: false,
+				  timer: 1500
+				}).then((result) => {
+					window.location.href = "?m=barangKeluar&s=awal";
+				});
+			  </script>';
+	} else {
+		echo '<script>
+				Swal.fire({
+				  icon: "error",
+				  title: "Penyimpanan data gagal",
+				  showConfirmButton: false,
+				  timer: 1500
+				}).then((result) => {
+					window.history.back();
+				});
+			  </script>';
 	}
-	}
-
-	
 }
+}
+?>
 
-
-
- ?>
+</body>
+</html>
