@@ -124,7 +124,7 @@ $jamSekarang = date("h:i a");
                 <div class="form-group">
                 <label for="exampleInputEmail1">No Ajuan</label>
                   <!-- Isi nilai input nomor barang keluar dengan nomor yang dihasilkan -->
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="no_brg_out"
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="no_ajuan"
                     aria-describedby="emailHelp" readonly value="<?php echo $nomor_ajuan; ?>">
                   <small id="emailHelp" class="form-text text-muted">Nomor Ajuan</small>
                 </div>
