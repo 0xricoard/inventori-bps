@@ -27,8 +27,9 @@ $sql_out = "SELECT tanggal_out AS tanggal, kode_brg, nama_brg, stok, NULL AS jml
             UNION ALL
             SELECT tanggal, kode_brg, nama_brg, stok, jml_masuk, NULL AS jml_keluar, keterangan, petugas 
             FROM tb_barang_in
-            ORDER BY nama_brg";
+            ORDER BY tanggal, nama_brg";
 $result = mysqli_query($koneksi, $sql_out);
+
 
 // Inisialisasi baris awal
 $row = 2;
