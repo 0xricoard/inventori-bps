@@ -30,7 +30,24 @@ if (!isset($_SESSION["idinv2"])) {
 
   <!-- tema css -->
   <link href="../css/tampilanadmin.css" rel="stylesheet">
+  <style>
+    /* CSS untuk membuat section menu mencapai bagian bawah halaman */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
 
+    #wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    #page-wrapper {
+      flex-grow: 1;
+    }
+  </style>
 </head>
 
 <body>
@@ -111,9 +128,6 @@ if (!isset($_SESSION["idinv2"])) {
       </div>
 
       <div class="row">
-
-
-
         <div class="col-lg-3 col-md-6">
           <div class="panel panel-red">
             <div class="panel-heading">
