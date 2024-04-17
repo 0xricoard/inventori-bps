@@ -215,7 +215,7 @@ if (!isset($_SESSION["idinv2"])) {
           <div class="col-lg-12">
 
             <p class="text-muted" style="font-size: 16px;">Copyright &copy;
-              <script>document.write(new Date().getFullYear());</script> X. All rights
+              <script>document.write(new Date().getFullYear());</script> Sistem Inventory Barang BPS. All rights
               reserved
             </p>
           </div>

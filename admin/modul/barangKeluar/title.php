@@ -100,12 +100,12 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
             </li>
             <li>
               <a href="?m=supplier&s=awal">
-                <i class="fa fa-building"></i> Data Supplier
+                <i class="fa fa-building"></i> Data UAKPB
               </a>
             </li>
             <li>
               <a href="?m=rak&s=awal">
-                <i class="fa fa-cubes"></i> Data Rak
+                <i class="fa fa-cubes"></i> Data TIM
               </a>
             </li>
             <li>
@@ -368,7 +368,7 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
             <p class="text-muted" style="font-size: 16px;">Copyright &copy;
               <script>
                 document.write(new Date().getFullYear());
-              </script> X. All rights reserved
+              </script> Sistem Inventory Barang BPS. All rights reserved
             </p>
           </div>
         </div>

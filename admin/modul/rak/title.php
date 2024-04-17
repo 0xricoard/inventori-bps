@@ -214,7 +214,7 @@
             <p class="text-muted" style="font-size: 16px;">Copyright &copy;
               <script>
                 document.write(new Date().getFullYear());
-              </script> X. All rights reserved
+              </script> Sistem Inventory Barang BPS. All rights reserved
             </p>
           </div>
         </div>

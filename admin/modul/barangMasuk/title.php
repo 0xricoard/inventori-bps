@@ -164,15 +164,10 @@
                                                 
 
     while ($data = mysqli_fetch_array($hasil)) {
-                                                    
-                                                
-                                                
-
+                                                                                                                                            
       ?>
-   
       <option value="<?php echo $data['nama_sup'];?>"><?php echo $data['nama_sup']; ?></option>
-      <?php } ?>
-                                                   
+      <?php } ?>                                    
       </select>
   </div>
           <div class="form-group">
@@ -265,10 +260,7 @@
                                  <th>Jumlah Masuk</th>
                                  <th>Jam</th>
                                  <th>Petugas</th>
-
-                                
-                                
-                                <th>Aksi</th>
+                                 <th>Aksi</th>
                                                 
                                             </tr>
                                         </thead>

@@ -75,17 +75,17 @@
 <br>
 <ul class="list-inline">
 <li>
-<a href="https://www.facebook.com/zibran.vitadiyatama.7/" target="_blank"><i class="fa fa-facebook fa-fw fa-2x"></i></a>
+<a href="https://www.facebook.com/0xricoard" target="_blank"><i class="fa fa-facebook fa-fw fa-2x"></i></a>
 </li>
 <li>
-<a href="https://github.com/ZibranovSky" target="_blank"><i class="fa fa-github fa-fw fa-2x"></i></a>
+<a href="https://github.com/0xricoard" target="_blank"><i class="fa fa-github fa-fw fa-2x"></i></a>
 </li>
 <li>
-<a href="https://www.linkedin.com/in/muhammad-zibran-fitadiyatama-6550801a9/" target="_blank"><i class="fa fa-linkedin fa-fw fa-2x"></i></a>
+<a href="https://www.linkedin.com/in/0xricoard" target="_blank"><i class="fa fa-linkedin fa-fw fa-2x"></i></a>
 </li>
 </ul>
 <hr class="medium">
-<p class="text-muted" style="font-size: 16px;">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Muhamad Zibran Fitadiyatama All rights reserved</p>
+<p class="text-muted" style="font-size: 16px;">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Sistem Inventory Barang BPS All rights reserved</p>
 </div>
 </section>
 </footer>
