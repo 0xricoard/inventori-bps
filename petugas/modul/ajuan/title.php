@@ -1,5 +1,5 @@
 <?php
-
+$nomor_ajuan = mt_rand(1000, 9999);
 date_default_timezone_set("Asia/Jakarta");
 $tanggalSekarang = date("Y-m-d");
 $jamSekarang = date("h:i a");
@@ -122,10 +122,11 @@ $jamSekarang = date("h:i a");
             <div class="modal-body">
               <form action="?m=ajuan&s=simpan" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Nomor Ajuan</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="no_ajuan"
-                    aria-describedby="emailHelp" placeholder="Masukkan Nomor Ajuan">
-                  <small id="emailHelp" class="form-text text-muted">Masukkan Nomor Ajuan</small>
+                <label for="exampleInputEmail1">No Ajuan</label>
+                  <!-- Isi nilai input nomor barang keluar dengan nomor yang dihasilkan -->
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="no_brg_out"
+                    aria-describedby="emailHelp" readonly value="<?php echo $nomor_ajuan; ?>">
+                  <small id="emailHelp" class="form-text text-muted">Nomor Ajuan</small>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Tanggal</label>

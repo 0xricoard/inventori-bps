@@ -98,7 +98,7 @@
             </li>
             <li>
               <a href="?m=supplier&s=awal">
-                <i class="fa fa-building"></i> Data Supplier
+                <i class="fa fa-building"></i> Data UAKPB
               </a>
             </li>
             <li>

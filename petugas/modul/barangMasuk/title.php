@@ -213,7 +213,7 @@ $jamSekarang = date("h:i");
     </div>
     <div class="row">
       <div class="table-responsive table--no-card m-b-30">
-        <table class="table table-borderless table-striped table-earning">
+        <table class="table table-bordered table-striped table-earning">
           <thead>
             <tr>
               <th>Id Barang Masuk</th>
