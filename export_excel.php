@@ -63,10 +63,6 @@ while ($row_data_in = mysqli_fetch_assoc($result_in)) {
   $sheet->setCellValue('H'.$row, $row_data_barang_in['petugas']);
   $row++;
 }
-
-
-
-
 // Mengatur header untuk menghasilkan file Excel
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment;filename="data_barang_keluar_masuk.xlsx"');
