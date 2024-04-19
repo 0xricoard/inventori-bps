@@ -205,7 +205,7 @@ if (!isset($_SESSION["idinv"])) {
                   $r = mysqli_fetch_assoc($query);
                   echo "<h3>" . $r['jrak'] . "</h3>";
                   ?>
-                  <div>Jumlah Rak</div>
+                  <div>Jumlah Tim</div>
                 </div>
               </div>
             </div>
