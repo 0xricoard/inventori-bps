@@ -113,7 +113,11 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
                 <i class="fa fa-archive"></i> Data Barang
               </a>
             </li>
-
+            <li>
+              <a href="?m=barangMasuk&s=awal">
+                <i class="fa fa-cart-plus"></i> Data Barang Masuk
+              </a>
+            <li>
             <li>
               <a href="?m=barangKeluar&s=awal">
                 <i class="fa fa-cart-arrow-down"></i> Data Barang Keluar
@@ -331,28 +335,28 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
           </table>
 
           <center>
-            <ul class="pagination justify-content-center">
-              <li class="page-item">
-                <a class="page-link" <?php if ($halaman > 1) {
-                  echo "href='?m=barangKeluar&s=awal&halaman=$previous'";
-                } ?>>Previous</a>
-              </li>
-              <?php
-              for ($x = 1; $x <= $total_halaman; $x++) {
-                ?>
-                <li class="page-item"><a class="page-link" href="?m=barangKeluar&s=awal&halaman=<?php echo $x ?>">
-                    <?php echo $x; ?>
-                  </a></li>
-                <?php
-              }
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" <?php if ($halaman > 1) {
+                echo "href='?m=barangMasuk&s=awal&halaman=$previous'";
+              } ?>>Previous</a>
+            </li>
+            <?php
+            for ($x = 1; $x <= $total_halaman; $x++) {
               ?>
-              <li class="page-item">
-                <a class="page-link" <?php if ($halaman < $total_halaman) {
-                  echo "href='?m=barangKeluar&s=awal&halaman=$next'";
-                } ?>>Next</a>
-              </li>
-            </ul>
-          </center>
+              <li class="page-item"><a class="page-link" href="?m=barangMasuk&s=awal&halaman=<?php echo $x ?>">
+                  <?php echo $x; ?>
+                </a></li>
+              <?php
+            }
+            ?>
+            <li class="page-item">
+              <a class="page-link" <?php if ($halaman < $total_halaman) {
+                echo "href='?m=barangMasuk&s=awal&halaman=$next'";
+              } ?>>Next</a>
+            </li>
+          </ul>
+        </center>
         </div>
       </div>
     </div>

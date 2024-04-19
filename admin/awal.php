@@ -109,7 +109,10 @@ if (!isset($_SESSION["idinv"])) {
                 <i class="fa fa-archive"></i> Data Barang
               </a>
             </li>
-
+            <li>
+              <a href="?m=barangMasuk&s=awal">
+                <i class="fa fa-cart-plus"></i> Data Barang Masuk
+              </a>
             <li>
               <a href="?m=barangKeluar&s=awal">
                 <i class="fa fa-cart-arrow-down"></i> Data Barang Keluar
@@ -267,7 +270,7 @@ if (!isset($_SESSION["idinv"])) {
             </div>
             <a href="#">
               <div class="panel-footer">
-                <span class="pull-left"><a href="?m=barangMasuk&s=awal"></a></span>
+                <span class="pull-left"><a href="?m=barangMasuk&s=awal">View Details</a></span>
                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                 <div class="clearfix"></div>
               </div>

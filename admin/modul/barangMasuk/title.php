@@ -2,7 +2,7 @@
 
 date_default_timezone_set("Asia/Jakarta");
 $tanggalSekarang = date("Y-m-d");
-$jamSekarang = date("h:i a");
+$jamSekarang = date("h:i");
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@ $jamSekarang = date("h:i a");
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Input Data Rak</title>
+  <title>Input Data Barang Masuk</title>
 
   <!-- boootstrap -->
   <link href="../vendor/css/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -97,6 +97,11 @@ $jamSekarang = date("h:i a");
                 <i class="fa fa-archive"></i> Data Barang
               </a>
             </li>
+            <li>
+              <a href="?m=barangMasuk&s=awal">
+                <i class="fa fa-cart-plus"></i> Data Barang Masuk
+              </a>
+            <li>
             <li>
               <a href="?m=barangKeluar&s=awal">
                 <i class="fa fa-cart-arrow-down"></i> Data Barang Keluar
@@ -228,44 +233,60 @@ $jamSekarang = date("h:i a");
       </div>
 
       <div class="row">
+      <div class="table-responsive table--no-card m-b-30">
+        <table class="table table-bordered table-striped table-earning">
+          <thead>
+            <tr>
+              <th>Id Barang Masuk</th>
+              <th>Tanggal</th>
+              <th>No Invoice</th>
+              <th>Supplier</th>
+              <th>Kode Barang</th>
+              <th>Nama Barang</th>
+              <th>Stok</th>
+              <th>Jumlah Masuk</th>
+              <th>Jam</th>
+              <th>Keterangan</th>
+              <th>Petugas</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
 
-        <div class="table-responsive table--no-card m-b-30">
-          <table class="table table-borderless table-striped table-earning">
-            <thead>
-              <tr>
+            <?php
 
-                <th>Id Barang Masuk</th>
-                <th>Tanggal</th>
-                <th>No Invoice</th>
-                <th>Supplier</th>
-                <th>Kode Barang</th>
-                <th>Nama Barang</th>
-                <th>Stok</th>
-                <th>Jumlah Masuk</th>
-                <th>Jam</th>
-                <th>Petugas</th>
-                <th>Aksi</th>
+            include 'paging.php';
 
-              </tr>
-            </thead>
-            <tbody>
-
-              <?php
-
-              include 'paging.php';
-
+            ?>
+          </tbody>
+        </table>
+        <center>
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" <?php if ($halaman > 1) {
+                echo "href='?m=barangMasuk&s=awal&halaman=$previous'";
+              } ?>>Previous</a>
+            </li>
+            <?php
+            for ($x = 1; $x <= $total_halaman; $x++) {
               ?>
-            </tbody>
-          </table>
-
-        </div>
+              <li class="page-item"><a class="page-link" href="?m=barangMasuk&s=awal&halaman=<?php echo $x ?>">
+                  <?php echo $x; ?>
+                </a></li>
+              <?php
+            }
+            ?>
+            <li class="page-item">
+              <a class="page-link" <?php if ($halaman < $total_halaman) {
+                echo "href='?m=barangMasuk&s=awal&halaman=$next'";
+              } ?>>Next</a>
+            </li>
+          </ul>
+        </center>
       </div>
-
-
+    </div>
     </div>
   </div>
-
-
   <!-- Footer -->
   <footer class="text-center">
     <div class="footer-below">
