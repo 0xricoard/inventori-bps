@@ -129,7 +129,7 @@
          <div class="modal-dialog modal-dialog-centered" role="document">
            <div class="modal-content">
              <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLongTitle">Tambah data supplier</h5>
+               <h5 class="modal-title" id="exampleModalLongTitle">Tambah data UAKPB</h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                  <span aria-hidden="true">&times;</span>
                </button>
@@ -137,24 +137,24 @@
              <div class="modal-body">
                <form action="?m=supplier&s=simpan" method="POST" enctype="multipart/form-data">
                  <div class="form-group">
-                   <label for="exampleInputEmail1">Nama</label>
-                   <input type="text" class="form-control" id="exampleInputEmail1" name="nama_sup" aria-describedby="emailHelp" placeholder="Masukkan Nama Supplier">
-                   <small id="emailHelp" class="form-text text-muted">Masukkan Nama Supplier</small>
+                   <label for="exampleInputEmail1">Nama UAKPB</label>
+                   <input type="text" class="form-control" id="exampleInputEmail1" name="nama_sup" aria-describedby="emailHelp" placeholder="Masukkan Nama UAKPB">
+                   <small id="emailHelp" class="form-text text-muted">Masukkan Nama UAKPB</small>
                  </div>
                  <div class="form-group">
                    <label>Kontak Supplier</label>
-                   <input type="text" class="form-control" id="exampleInputEmail1" name="kontak_sup" aria-describedby="emailHelp" placeholder="Masukkan Kontak Supplier">
-                   <small class="form-text text-muted">Masukkan Kontak Supplier</small>
+                   <input type="text" class="form-control" id="exampleInputEmail1" name="kontak_sup" aria-describedby="emailHelp" placeholder="Masukkan Kontak UAKPB">
+                   <small class="form-text text-muted">Masukkan Kontak UAKPB</small>
                  </div>
                  <div class="form-group">
                    <label>Alamat Supplier</label>
-                   <textarea class="form-control" aria-describedby="emailHelp" name="alamat_sup" placeholder="Masukkan Alamat Supplier"></textarea>
-                   <small id="emailHelp" class="form-text text-muted">Masukkan Alamat Supplier</small>
+                   <textarea class="form-control" aria-describedby="emailHelp" name="alamat_sup" placeholder="Masukkan Alamat UAKPB"></textarea>
+                   <small id="emailHelp" class="form-text text-muted">Masukkan Alamat UAKPB</small>
                  </div>
                  <div class="form-group">
-                   <label for="exampleInputEmail1">Telepon Supplier</label>
-                   <input type="text" class="form-control" id="exampleInputEmail1" name="telepon_sup" aria-describedby="emailHelp" placeholder="Masukkan Telepon Supplier">
-                   <small id="emailHelp" class="form-text text-muted">Masukkan Telepon Supplier</small>
+                   <label for="exampleInputEmail1">Telepon UAKPB</label>
+                   <input type="text" class="form-control" id="exampleInputEmail1" name="telepon_sup" aria-describedby="emailHelp" placeholder="Masukkan Telepon UAKPB">
+                   <small id="emailHelp" class="form-text text-muted">Masukkan Telepon UAKPB</small>
                  </div>
 
              </div>
@@ -174,11 +174,11 @@
              <thead>
                <tr>
 
-                 <th>Id Supplier</th>
-                 <th>Nama Supplier</th>
-                 <th>Kontak Supplier</th>
-                 <th>Alamat Supplier</th>
-                 <th>Telepon Supplier</th>
+                 <th>Id UAKPB</th>
+                 <th>Nama UAKPB</th>
+                 <th>Kontak UAKPB</th>
+                 <th>Alamat UAKPB</th>
+                 <th>Telepon UAKPB</th>
                  <th>Aksi</th>
 
                </tr>
