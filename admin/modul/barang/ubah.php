@@ -133,13 +133,13 @@
               name="stok" aria-describedby="emailHelp" placeholder="Masukkan Stok Barang">
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Rak</label>
-            <select class="form-control" name="rak" required="">
+            <label for="exampleInputEmail1">TIM</label>
+            <select class="form-control" name="tim" required="">
               <?php
 
               include '../koneksi.php';
 
-              $sql = "SELECT * FROM tb_rak";
+              $sql = "SELECT * FROM tb_tim";
 
               $hasil = mysqli_query($koneksi, $sql);
 
@@ -153,7 +153,7 @@
                 ?>
 
 
-                <option value="<?php echo $data['nama_rak']; ?>"><?php echo $data['nama_rak']; ?></option>
+                <option value="<?php echo $data['nama_tim']; ?>"><?php echo $data['nama_tim']; ?></option>
               <?php } ?>
 
             </select>

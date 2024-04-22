@@ -1,45 +1,45 @@
 <head>
-	 
+
 </head>
-<?php 
+<?php
 include '../koneksi.php';
 
 $batas = 10;
-$halaman = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
-$halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;
+$halaman = isset($_GET['halaman']) ? (int) $_GET['halaman'] : 1;
+$halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
 
 $previous = $halaman - 1;
 $next = $halaman + 1;
 
-$data = mysqli_query($koneksi, "SELECT * FROM tb_rak");
+$data = mysqli_query($koneksi, "SELECT * FROM tb_tim");
 $jumlah_data = mysqli_num_rows($data);
 $total_halaman = ceil($jumlah_data / $batas);
 
-$data_rak = mysqli_query($koneksi, "SELECT * FROM tb_rak LIMIT $halaman_awal, $batas");
-$nomor = $halaman_awal+1;
+$data_rak = mysqli_query($koneksi, "SELECT * FROM tb_tim LIMIT $halaman_awal, $batas");
+$nomor = $halaman_awal + 1;
 
 
 
 
-while ($row=mysqli_fetch_array($data_rak)) {
-	
+while ($row = mysqli_fetch_array($data_rak)) {
 
 
 
- ?>
 
-  <tr>
-                                         
-                                                <td><?php echo $row['id_rak']; ?></td>
-                                                <td><?php echo $row['nama_rak']; ?></td>
-                                              
+    ?>
 
+    <tr>
 
-
-                                                <td><a href="index.php?m=rak&s=hapus&id_rak=<?php echo $row['id_rak'];?>" onclick="return confirm('Yakin Akan dihapus?')"><button class="btn btn-danger">Hapus</button></a></td>
+        <td><?php echo $row['id_tim']; ?></td>
+        <td><?php echo $row['nama_tim']; ?></td>
 
 
-                                                
-                                            </tr>
-                                        <?php } ?>
 
+
+        <td><a href="index.php?m=rak&s=hapus&id_rak=<?php echo $row['id_tim']; ?>"
+                onclick="return confirm('Yakin Akan dihapus?')"><button class="btn btn-danger">Hapus</button></a></td>
+
+
+
+    </tr>
+<?php } ?>

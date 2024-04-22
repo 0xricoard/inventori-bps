@@ -193,14 +193,14 @@
                  </div>
                  <div class="form-group">
                    <label for="exampleInputEmail1">Tim</label>
-                   <select class="form-control" name="rak" required="">
+                   <select class="form-control" name="tim" required="">
                      <?php
                       include '../koneksi.php';
-                      $sql = "SELECT * FROM tb_rak";
+                      $sql = "SELECT * FROM tb_tim";
                       $hasil = mysqli_query($koneksi, $sql);
                       while ($data = mysqli_fetch_array($hasil)) {
                       ?>
-                       <option value="<?php echo $data['nama_rak']; ?>"><?php echo $data['nama_rak']; ?></option>
+                       <option value="<?php echo $data['nama_tim']; ?>"><?php echo $data['nama_tim']; ?></option>
                      <?php } ?>
                    </select>
                    <small id="emailHelp" class="form-text text-muted"></small>

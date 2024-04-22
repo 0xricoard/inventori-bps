@@ -155,7 +155,7 @@
               <form action="?m=rak&s=simpan" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="nama_rak" aria-describedby="emailHelp" placeholder="Masukkan Nama Tim">
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="nama_tim" aria-describedby="emailHelp" placeholder="Masukkan Nama Tim">
                   <small id="emailHelp" class="form-text text-muted">Masukkan Nama Tim</small>
                 </div>
             </div>

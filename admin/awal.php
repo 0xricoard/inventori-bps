@@ -203,7 +203,7 @@ if (!isset($_SESSION["idinv"])) {
                 <div class="col-xs-9 text-right">
                   <?php
                   include_once "../koneksi.php";
-                  $sql = "SELECT count(id_rak) as jrak FROM tb_rak";
+                  $sql = "SELECT count(id_tim) as jrak FROM tb_tim";
                   $query = mysqli_query($koneksi, $sql);
                   $r = mysqli_fetch_assoc($query);
                   echo "<h3>" . $r['jrak'] . "</h3>";

@@ -45,7 +45,7 @@ foreach ($data_rak as $row):
             <?php echo $row['stok']; ?>
         </td>
         <td>
-            <?php echo $row['rak']; ?>
+            <?php echo $row['tim']; ?>
         </td>
         <td><a href="index.php?m=barang&s=hapus&kode_brg=<?php echo $row['id']; ?>"
                 onclick="return confirm('Yakin Akan dihapus?')"><button class="btn btn-danger">Hapus</button></a> | <a
