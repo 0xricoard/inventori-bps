@@ -53,7 +53,7 @@
       <ul class="nav navbar-top-links navbar-right">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <img src="../images/admin/<?php echo $r['foto']; ?>" height="50"></i>
+            <img src="../images/admin/<?php echo $r['foto']; ?>" height="35"></i>
             <?php echo $r['nama']; ?>
           </a>
           <ul class="dropdown-menu dropdown-user">
