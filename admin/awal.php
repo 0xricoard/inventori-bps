@@ -4,6 +4,10 @@ if (!isset($_SESSION["idinv"])) {
   header("Location: login.php");
   exit();
 }
+// Query untuk mengambil data ajuan yang menunggu persetujuan
+$sql_ajuan = "SELECT * FROM tb_ajuan WHERE val = 1";
+$query_ajuan = mysqli_query($koneksi, $sql_ajuan);
+$jumlah_ajuan = mysqli_num_rows($query_ajuan);
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,8 +37,18 @@ if (!isset($_SESSION["idinv"])) {
       flex-grow: 1;
     }
   </style>
-  <!-- boootstrap -->
-  <link href="../vendor/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
 
   <!-- icon dan fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -134,6 +148,17 @@ if (!isset($_SESSION["idinv"])) {
           <h1 class="page-header">Selamat Datang, <?php echo $r['nama']; ?></h1>
         </div>
       </div>
+      <!-- Bootstrap alert -->
+      <?php if ($jumlah_ajuan > 0): ?>
+        <div class="alert alert-info" role="alert">
+          <i class="fa fa-info-circle"></i> <!-- Ikon info -->
+          Terdapat <?php echo $jumlah_ajuan; ?> ajuan yang menunggu persetujuan. Silakan ke Menu <b><a
+              href="m=barangKeluar&s=awal">Barang Keluar </a></b>untuk memprosesnya
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <?php endif; ?>
 
       <div class="row">
         <div class="col-lg-3 col-md-6">
