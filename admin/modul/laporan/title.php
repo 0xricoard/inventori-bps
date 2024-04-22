@@ -51,7 +51,29 @@ $jamSekarang = date("h:i a");
         </button>
         <a class="navbar-brand">Inventory</a>
       </div>
-
+      <?php
+      $id = $_SESSION['idinv'];
+      include '../koneksi.php';
+      include '../admin/modul/admin/simpan.php';
+      $sql = "SELECT * FROM tb_admin WHERE id_admin = '$id'";
+      $query = mysqli_query($koneksi, $sql);
+      $r = mysqli_fetch_array($query);
+      ?>
+      <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <img src="../images/admin/<?php echo $r['foto']; ?>" height="35"></i> <?php echo $r['nama']; ?>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <li>
+              <form class="" action="logout.php" onclick="return confirm('yakin ingin logout?');" method="post">
+                <button class="btn btn-default" type="submit" name="keluar"><i class="fa fa-sign-out"></i>
+                  Logout</button>
+              </form>
+            </li>
+          </ul>
+        </li>
+      </ul>
       <!-- menu samping -->
       <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
