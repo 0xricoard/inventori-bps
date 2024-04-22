@@ -159,7 +159,7 @@ $jumlah_ajuan = mysqli_num_rows($query_ajuan);
         <div class="alert alert-info" role="alert">
           <i class="fa fa-info-circle"></i> <!-- Ikon info -->
           Terdapat <?php echo $jumlah_ajuan; ?> ajuan yang menunggu persetujuan. Silakan ke Menu <b><a
-              href="m=barangKeluar&s=awal">Barang Keluar </a></b>untuk memprosesnya
+              href="?m=barangKeluar&s=awal">Barang Keluar </a></b>untuk memprosesnya
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
