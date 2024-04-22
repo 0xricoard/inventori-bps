@@ -5,7 +5,7 @@ if(isset($_POST['simpan'])){
 	$nama_tim = $_POST['nama_tim'];
 	
 	
-		$sql = "INSERT INTO tb_rak SET nama_tim='$nama_tim'";
+		$sql = "INSERT INTO tb_tim SET nama_tim='$nama_tim'";
 			mysqli_query($koneksi,$sql);
 	if($sql){
 		 echo '<script>window.history.back()</script>';
