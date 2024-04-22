@@ -101,6 +101,11 @@
                </a>
              </li>
              <li>
+              <a href="?m=laporan&s=awal">
+                <i class="fa fa-file"></i> Laporan 
+              </a>
+            </li>
+             <li>
                <a href="logout.php" onclick="return confirm('yakin ingin logout?')">
                  <i class="fa fa-warning"></i> Logout
                </a>
