@@ -2,7 +2,7 @@
 include "sesi_admin.php";
 if(isset($_GET['id_tim'])){
 	include "../koneksi.php";
-	$id=$_GET['id_rak'];
+	$id=$_GET['id_tim'];
 	
 		$sql1   = "DELETE FROM tb_tim WHERE id_tim= '$id'";
 	
