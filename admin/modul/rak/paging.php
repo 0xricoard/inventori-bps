@@ -36,7 +36,7 @@ while ($row = mysqli_fetch_array($data_rak)) {
 
 
 
-        <td><a href="index.php?m=rak&s=hapus&id_rak=<?php echo $row['id_tim']; ?>"
+        <td><a href="index.php?m=rak&s=hapus&id_tim=<?php echo $row['id_tim']; ?>"
                 onclick="return confirm('Yakin Akan dihapus?')"><button class="btn btn-danger">Hapus</button></a></td>
 
 
