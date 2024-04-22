@@ -142,15 +142,6 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Tambah data
       </button>
-      <!-- Button untuk cetak Excel -->
-<button type="button" class="btn btn-success" onclick="exportToExcel()">Cetak Excel</button>
-<script type="text/javascript">
-  function exportToExcel() {
-    // Mengirim permintaan ke server untuk menghasilkan file Excel
-    window.location.href = '../export_excel.php';
-  }
-</script>
-
       <!-- Modal -->
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
