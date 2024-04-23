@@ -87,4 +87,11 @@ hr.star-primary {
     margin-left: auto;
   }
 }
-
+footer {
+  color: black;
+  font-size: 15px;
+}
+footer .footer-below {
+  padding: 20px 0;
+  background-color: #A9ABAE;
+}
