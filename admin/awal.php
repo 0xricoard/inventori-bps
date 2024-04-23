@@ -195,6 +195,34 @@ $jumlah_ajuan = mysqli_num_rows($query_ajuan);
             </a>
           </div>
         </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="panel panel-yellow">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-3">
+                  <i class="fa fa-users fa-5x"></i>
+                </div>
+                <div class="col-xs-9 text-right">
+                  <?php
+                  include_once "../koneksi.php";
+                  $sql = "SELECT count(id_petugas) as jpetugas FROM tb_petugas";
+                  $query = mysqli_query($koneksi, $sql);
+                  $r = mysqli_fetch_assoc($query);
+                  echo "<h3>" . $r['jpetugas'] . "</h3>";
+                  ?>
+                  <div>Jumlah Petugas</div>
+                </div>
+              </div>
+            </div>
+            <a href="#">
+              <div class="panel-footer">
+                <span class="pull-left"><a href="?m=petugas&s=awal">View Details</a></span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+              </div>
+            </a>
+          </div>
+        </div>
 
         <div class="col-lg-3 col-md-6">
           <div class="panel panel-yellow">
