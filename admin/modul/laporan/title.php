@@ -135,7 +135,7 @@ $jamSekarang = date("h:i a");
     <div id="page-wrapper">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="page-header">Laporan Branag Keluar dan Masuk</h1>
+          <h1 class="page-header">Laporan Barang Keluar dan Masuk</h1>
         </div>
       </div>
           <!-- Button untuk cetak Excel -->
