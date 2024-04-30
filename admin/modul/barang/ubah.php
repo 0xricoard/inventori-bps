@@ -34,9 +34,9 @@
         <a class="navbar-brand">Inventory</a>
       </div>
       <?php
-      $id = $_GET['kode_brg'];
+      $id = $_GET['id_barang'];
       include '../koneksi.php';
-      $sql = "SELECT * FROM tb_barang WHERE kode_brg = '$id'";
+      $sql = "SELECT * FROM tb_barang WHERE id_barang = '$id'";
       $query = mysqli_query($koneksi, $sql);
       $r = mysqli_fetch_array($query);
 
@@ -111,6 +111,7 @@
       <div class="row">
 
         <form action="?m=barang&s=update" method="POST" enctype="multipart/form-data">
+        <input type="hidden" value="<?php echo $r['id_barang']; ?>" name="id_barang">
           <div class="form-group">
             <label for="exampleInputEmail1">Kode Barang</label>
             <input type="text" class="form-control" id="exampleInputEmail1" name="kode_brg"

@@ -30,6 +30,9 @@ foreach ($data_rak as $row):
             <?php echo $no++; ?>
         </td>
         <td>
+            <?php echo $row['id_barang']; ?>
+        </td>
+        <td>
             <?php echo $row['supplier']; ?>
         </td>
         <td>
@@ -47,9 +50,9 @@ foreach ($data_rak as $row):
         <td>
             <?php echo $row['tim']; ?>
         </td>
-        <td><a href="index.php?m=barang&s=hapus&kode_brg=<?php echo $row['id']; ?>"
+        <td><a href="index.php?m=barang&s=hapus&id_barang=<?php echo $row['id_barang']; ?>"
                 onclick="return confirm('Yakin Akan dihapus?')"><button class="btn btn-danger">Hapus</button></a> | <a
-                href="index.php?m=barang&s=ubah&kode_brg=<?php echo $row['kode_brg']; ?>"><button
+                href="index.php?m=barang&s=ubah&id_barang=<?php echo $row['id_barang']; ?>"><button
                     class="btn btn-primary">Ubah</button></a></td>
     </tr>
 <?php endforeach; ?>
