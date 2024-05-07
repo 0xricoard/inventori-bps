@@ -30,9 +30,6 @@ foreach ($data_rak as $row):
             <?php echo $no++; ?>
         </td>
         <td>
-            <?php echo $row['id_barang']; ?>
-        </td>
-        <td>
             <?php echo $row['supplier']; ?>
         </td>
         <td>
