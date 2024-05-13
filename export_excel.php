@@ -22,11 +22,13 @@ $sheet->setCellValue('G1', 'Keterangan');
 $sheet->setCellValue('H1', 'Nama');
 
 // Query untuk mendapatkan data dari database untuk tabel tb_barang_out
-$sql_out = "SELECT tanggal_out AS tanggal, kode_brg, nama_brg, stok, NULL AS jml_masuk, jml_keluar, keterangan, petugas 
-            FROM tb_barang_out
+$sql_out = "SELECT tanggal_out AS tanggal, b.kode_brg, b.nama_brg, b.stok AS stok, NULL AS jml_masuk, jml_keluar, keterangan, petugas 
+            FROM tb_barang_out AS bo
+            JOIN tb_barang AS b ON bo.kode_brg = b.kode_brg
             UNION ALL
-            SELECT tanggal, kode_brg, nama_brg, stok, jml_masuk, NULL AS jml_keluar, keterangan, petugas 
-            FROM tb_barang_in
+            SELECT tanggal, b.kode_brg, b.nama_brg, b.stok AS stok, jml_masuk, NULL AS jml_keluar, keterangan, petugas 
+            FROM tb_barang_in AS bi
+            JOIN tb_barang AS b ON bi.kode_brg = b.kode_brg
             ORDER BY tanggal, nama_brg";
 $result = mysqli_query($koneksi, $sql_out);
 

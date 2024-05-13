@@ -8,12 +8,14 @@ $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
 $previous = $halaman - 1;
 $next = $halaman + 1;
 
-$sql_out = "SELECT tanggal_out AS tanggal, kode_brg, nama_brg, stok, NULL AS jml_masuk, jml_keluar, keterangan, petugas 
-                          FROM tb_barang_out
-                          UNION ALL
-                          SELECT tanggal, kode_brg, nama_brg, stok, jml_masuk, NULL AS jml_keluar, keterangan, petugas 
-                          FROM tb_barang_in
-                          ORDER BY tanggal, nama_brg";
+$sql_out = "SELECT tanggal_out AS tanggal, b.kode_brg, b.nama_brg, b.stok AS stok, NULL AS jml_masuk, jml_keluar, keterangan, petugas 
+            FROM tb_barang_out AS bo
+            JOIN tb_barang AS b ON bo.kode_brg = b.kode_brg
+            UNION ALL
+            SELECT tanggal, b.kode_brg, b.nama_brg, b.stok AS stok, jml_masuk, NULL AS jml_keluar, keterangan, petugas 
+            FROM tb_barang_in AS bi
+            JOIN tb_barang AS b ON bi.kode_brg = b.kode_brg
+            ORDER BY tanggal, nama_brg";
               $query_out = mysqli_query($koneksi, $sql_out);
               $batas = 10;
               $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
