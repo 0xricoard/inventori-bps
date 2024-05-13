@@ -9,11 +9,11 @@
 <body>
 <?php
 include "sesi_admin.php";
-if(isset($_GET['kode_brg'])){
+if(isset($_GET['id_barang'])){
 	include "../koneksi.php";
-	$id=$_GET['kode_brg'];
+	$id=$_GET['id_barang'];
 	
-		$sql1   = "DELETE FROM tb_barang WHERE id= '$id'";
+		$sql1   = "DELETE FROM tb_barang WHERE id_barang= '$id'";
 	
 		
 		$hapus1 = mysqli_query($koneksi,$sql1);

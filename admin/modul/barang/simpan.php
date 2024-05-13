@@ -24,7 +24,7 @@
 		$tim = $_POST['tim'];
 		$supplier = $_POST['supplier'];
 		//cek id
-		$sql_cek = mysqli_query($koneksi, "SELECT * FROM tb_barang WHERE id = '$kode_brg'");
+		$sql_cek = mysqli_query($koneksi, "SELECT * FROM tb_barang WHERE id_barang = '$id'");
 		$cek = mysqli_fetch_row($sql_cek);
 
 		if ($cek) {
