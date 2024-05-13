@@ -11,7 +11,7 @@ $previous = $halaman - 1;
 $next = $halaman + 1;
 
 // Hapus inisialisasi nomor urut di sini
-$data = mysqli_query($koneksi, "SELECT * FROM tb_barang");
+$data = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY kode_brg ASC");
 $jumlah_data = mysqli_num_rows($data);
 $total_halaman = ceil($jumlah_data / $batas);
 //$nomor = $halaman_awal + 1; // Hapus baris ini
