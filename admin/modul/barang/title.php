@@ -253,12 +253,12 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>UAKPB</th>
                 <th>Kode Barang</th>
                 <th>Nama Barang</th>
                 <th>Satuan</th>
                 <th>Stok</th>
                 <th>TIM</th>
+                <th>UAKPB</th>
                 <th>Aksi</th>
               </tr>
             </thead>

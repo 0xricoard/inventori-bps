@@ -4,16 +4,18 @@
 <?php
 include '../koneksi.php';
 
-$batas = 10;
+$batas = 20;
 $halaman = isset($_GET['halaman']) ? (int) $_GET['halaman'] : 1;
 $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
 $previous = $halaman - 1;
 $next = $halaman + 1;
+
+// Hapus inisialisasi nomor urut di sini
 $data = mysqli_query($koneksi, "SELECT * FROM tb_barang");
 $jumlah_data = mysqli_num_rows($data);
 $total_halaman = ceil($jumlah_data / $batas);
-$nomor = $halaman_awal + 1;
-$no = 1;
+//$nomor = $halaman_awal + 1; // Hapus baris ini
+$no = ($halaman * $batas) - ($batas - 1); // Tambahkan variabel nomor urut ini
 
 if (isset($_POST['go'])) {
     $cari = $_POST['cari'];
@@ -24,13 +26,10 @@ if (isset($_POST['go'])) {
 }
 
 foreach ($data_rak as $row):
-    ?>
+?>
     <tr>
         <td>
             <?php echo $no++; ?>
-        </td>
-        <td>
-            <?php echo $row['supplier']; ?>
         </td>
         <td>
             <?php echo $row['kode_brg']; ?>
@@ -46,6 +45,9 @@ foreach ($data_rak as $row):
         </td>
         <td>
             <?php echo $row['tim']; ?>
+        </td>
+        <td>
+            <?php echo $row['supplier']; ?>
         </td>
         <td><a href="index.php?m=barang&s=hapus&id_barang=<?php echo $row['id_barang']; ?>"
                 onclick="return confirm('Yakin Akan dihapus?')"><button class="btn btn-danger">Hapus</button></a> | <a
