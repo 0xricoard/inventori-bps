@@ -11,10 +11,9 @@ $next = $halaman + 1;
 // Query pencarian
 if (isset($_POST['go'])) {
     $cari = $_POST['cari'];
-
-    $data_rak = mysqli_query($koneksi, "SELECT * FROM tb_barang_out WHERE no_brg_out LIKE '%" . $cari . "%' LIMIT $halaman_awal, $batas");
+    $data_rak = mysqli_query($koneksi, "SELECT no_brg_out, no_ajuan, tanggal_ajuan, DATE_FORMAT(tanggal_out, '%d-%m-%Y') AS tanggal_out, petugas, kode_brg, nama_brg, stok, jml_ajuan, jml_keluar, keterangan, admin FROM tb_barang_out WHERE no_brg_out LIKE '%$cari%' LIMIT $halaman_awal, $batas");
 } else {
-    $data_rak = mysqli_query($koneksi, "SELECT * FROM tb_barang_out LIMIT $halaman_awal, $batas");
+    $data_rak = mysqli_query($koneksi, "SELECT no_brg_out, no_ajuan, tanggal_ajuan, DATE_FORMAT(tanggal_out, '%d-%m-%Y') AS tanggal_out, petugas, kode_brg, nama_brg, stok, jml_ajuan, jml_keluar, keterangan, admin FROM tb_barang_out LIMIT $halaman_awal, $batas");
 }
 
 // Mendapatkan jumlah data untuk pagination
