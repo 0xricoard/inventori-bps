@@ -232,7 +232,7 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Tanggal Keluar</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="tanggal_out"
+                  <input type="date" class="form-control" id="exampleInputEmail1" name="tanggal_out"
                     value="<?php echo $tanggalSekarang; ?>" aria-describedby="emailHelp"
                     placeholder="Masukkan Tanggal Keluar">
                   <small id="emailHelp" class="form-text text-muted">Masukkan Tanggal Keluar</small>
@@ -340,7 +340,7 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
             <?php
             for ($x = 1; $x <= $total_halaman; $x++) {
               ?>
-              <li class="page-item"><a class="page-link" href="?m=barangMasuk&s=awal&halaman=<?php echo $x ?>">
+              <li class="page-item"><a class="page-link" href="?m=barangKeluar&s=awal&halaman=<?php echo $x ?>">
                   <?php echo $x; ?>
                 </a></li>
               <?php
