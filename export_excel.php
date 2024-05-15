@@ -20,15 +20,15 @@ $sheet->setCellValue('E1', 'Jumlah Masuk');
 $sheet->setCellValue('F1', 'Jumlah Keluar');
 $sheet->setCellValue('G1', 'Keterangan');
 $sheet->setCellValue('H1', 'Nama');
-$sheet->setCellValue('I1', 'Stok Terakhir');
+$sheet->setCellValue('I1', 'Stok Saat Ini');
 
-// Query untuk mendapatkan data dari database untuk tabel tb_barang_out
-$sql_out = "SELECT tanggal_out AS tanggal, kode_brg, nama_brg, stok, NULL AS jml_masuk, jml_keluar, keterangan, petugas 
+// Query untuk mendapatkan data dari database untuk tabel tb_barang_out dengan format tanggal DD-MM-YYYY
+$sql_out = "SELECT DATE_FORMAT(tanggal_out, '%d-%m-%Y') AS tanggal, kode_brg, nama_brg, stok, NULL AS jml_masuk, jml_keluar, keterangan, petugas 
             FROM tb_barang_out
             UNION ALL
-            SELECT tanggal, kode_brg, nama_brg, stok, jml_masuk, NULL AS jml_keluar, keterangan, petugas 
+            SELECT DATE_FORMAT(tanggal, '%d-%m-%Y') AS tanggal, kode_brg, nama_brg, stok, jml_masuk, NULL AS jml_keluar, keterangan, petugas 
             FROM tb_barang_in
-            ORDER BY tanggal, nama_brg";
+            ORDER BY STR_TO_DATE(tanggal, '%d-%m-%Y'), nama_brg";
 $result = mysqli_query($koneksi, $sql_out);
 
 // Inisialisasi baris awal dan stok awal

@@ -1,7 +1,7 @@
 <?php
 include '../koneksi.php';
 
-$batas = 10;
+$batas = 15;
 $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
 $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
 
@@ -17,7 +17,7 @@ $sql_out = "SELECT tanggal_out AS tanggal, b.kode_brg, b.nama_brg, b.stok AS sto
             JOIN tb_barang AS b ON bi.kode_brg = b.kode_brg
             ORDER BY tanggal, nama_brg";
               $query_out = mysqli_query($koneksi, $sql_out);
-              $batas = 10;
+              $batas = 15;
               $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
               $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
               $previous = $halaman - 1;
