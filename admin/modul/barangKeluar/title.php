@@ -125,7 +125,7 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
             </li>
             <li>
               <a href="?m=laporan&s=awal">
-                <i class="fa fa-file"></i> Laporan 
+                <i class="fa fa-file"></i> Laporan
               </a>
             </li>
             <li>
@@ -153,7 +153,7 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Ajuan</h5>
+              <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Barang Keluar</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -171,8 +171,12 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
                   <label for="exampleInputEmail1">Nomor Ajuan</label>
                   <?php
                   include ("../koneksi.php");
-                  $supp = ("SELECT * FROM tb_ajuan WHERE val = '1' ");
-                  $result = mysqli_query($koneksi, $supp);
+
+                  $query = "SELECT a.*, b.stok 
+          FROM tb_ajuan a
+          INNER JOIN tb_barang b ON a.kode_brg = b.kode_brg 
+          WHERE a.val = '1'";
+                  $result = mysqli_query($koneksi, $query);
 
                   $jsArray = "var prdName = new Array();";
 
@@ -180,19 +184,18 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
                   echo '<option>--- PILIH ---</option>';
 
                   while ($row = mysqli_fetch_array($result)) {
-
                     echo '<option value="' . $row['no_ajuan'] . '">AJ0' . $row['no_ajuan'] . '</option>';
                     $jsArray .= "prdName['" . $row['no_ajuan'] . "'] 
-								= {tanggal_ajuan:'" . addslashes($row['tanggal']) . "',
-									petugas:'" . addslashes($row['petugas']) . "',
-									kode_brg:'" . addslashes($row['kode_brg']) . "',
-									nama_brg:'" . addslashes($row['nama_brg']) . "',
-									stok:'" . addslashes($row['stok']) . "',
-									jml_ajuan:'" . addslashes($row['jml_ajuan']) . "',
+                = {
+                  tanggal_ajuan:'" . addslashes($row['tanggal']) . "',
+                  petugas:'" . addslashes($row['petugas']) . "',
+                  kode_brg:'" . addslashes($row['kode_brg']) . "',
+                  nama_brg:'" . addslashes($row['nama_brg']) . "',
+                  stok:'" . addslashes($row['stok']) . "',
+                  jml_ajuan:'" . addslashes($row['jml_ajuan']) . "',
                   keterangan:'" . addslashes($row['keterangan']) . "',
-									val:'" . addslashes($row['val']) . "'
-                  
-								};";
+                  val:'" . addslashes($row['val']) . "'
+                };";
                   }
 
                   echo '</select>';
@@ -206,8 +209,7 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
                       document.getElementById('prd_namabrg').value = prdName[id].nama_brg;
                       document.getElementById('prd_stokbrga').value = prdName[id].stok;
                       document.getElementById('prd_jmlajuan').value = prdName[id].jml_ajuan;
-                      document.getElementById('prd_keterangan').value = prdName[id].keterangan; // Menampilkan keterangan
-                      document.getElementById('prd_val').value = prdName[id].val;
+                      document.getElementById('prd_keterangan').value = prdName[id].keterangan;
 
                       // AJAX request to fetch keterangan from tb_ajuan
                       var xhr = new XMLHttpRequest();
@@ -220,9 +222,7 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
                       xhr.open('GET', 'get_keterangan.php?id=' + id, true);
                       xhr.send();
                     }
-
                   </script>
-
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Tanggal Ajuan</label>
@@ -331,28 +331,28 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
           </table>
 
           <center>
-          <ul class="pagination justify-content-center">
-            <li class="page-item">
-              <a class="page-link" <?php if ($halaman > 1) {
-                echo "href='?m=barangMasuk&s=awal&halaman=$previous'";
-              } ?>>Previous</a>
-            </li>
-            <?php
-            for ($x = 1; $x <= $total_halaman; $x++) {
-              ?>
-              <li class="page-item"><a class="page-link" href="?m=barangKeluar&s=awal&halaman=<?php echo $x ?>">
-                  <?php echo $x; ?>
-                </a></li>
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" <?php if ($halaman > 1) {
+                  echo "href='?m=barangMasuk&s=awal&halaman=$previous'";
+                } ?>>Previous</a>
+              </li>
               <?php
-            }
-            ?>
-            <li class="page-item">
-              <a class="page-link" <?php if ($halaman < $total_halaman) {
-                echo "href='?m=barangMasuk&s=awal&halaman=$next'";
-              } ?>>Next</a>
-            </li>
-          </ul>
-        </center>
+              for ($x = 1; $x <= $total_halaman; $x++) {
+                ?>
+                <li class="page-item"><a class="page-link" href="?m=barangMasuk&s=awal&halaman=<?php echo $x ?>">
+                    <?php echo $x; ?>
+                  </a></li>
+                <?php
+              }
+              ?>
+              <li class="page-item">
+                <a class="page-link" <?php if ($halaman < $total_halaman) {
+                  echo "href='?m=barangMasuk&s=awal&halaman=$next'";
+                } ?>>Next</a>
+              </li>
+            </ul>
+          </center>
         </div>
       </div>
     </div>
