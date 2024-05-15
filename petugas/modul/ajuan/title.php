@@ -96,164 +96,164 @@ $jamSekarang = date("h:i a");
       </div>
     </nav>
   </div>
-    <div id="page-wrapper">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="page-header">Data Ajuan</h1>
-        </div>
+  <div id="page-wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Data Ajuan</h1>
       </div>
+    </div>
 
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Tambah data
-      </button>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+      Tambah data
+    </button>
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Ajuan</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form action="?m=ajuan&s=simpan" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Ajuan</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="?m=ajuan&s=simpan" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
                 <label for="exampleInputEmail1">No Ajuan</label>
-                  <!-- Isi nilai input nomor barang keluar dengan nomor yang dihasilkan -->
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="no_ajuan"
-                    aria-describedby="emailHelp" readonly value="<?php echo $nomor_ajuan; ?>">
-                  <small id="emailHelp" class="form-text text-muted">Nomor Ajuan</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Tanggal</label>
-                  <input type="text" class="form-control" value="<?php echo $tanggalSekarang; ?>"
-                    id="exampleInputEmail1" name="tanggal" aria-describedby="emailHelp" placeholder="Masukkan Tanggal">
-                  <small id="emailHelp" class="form-text text-muted">Masukkan Tanggal</small>
-                </div>
+                <!-- Isi nilai input nomor barang keluar dengan nomor yang dihasilkan -->
+                <input type="text" class="form-control" id="exampleInputEmail1" name="no_ajuan"
+                  aria-describedby="emailHelp" readonly value="<?php echo $nomor_ajuan; ?>">
+                <small id="emailHelp" class="form-text text-muted">Nomor Ajuan</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Tanggal</label>
+                <input type="text" class="form-control" value="<?php echo $tanggalSekarang; ?>" id="exampleInputEmail1"
+                  name="tanggal" aria-describedby="emailHelp" placeholder="Masukkan Tanggal">
+                <small id="emailHelp" class="form-text text-muted">Masukkan Tanggal</small>
+              </div>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Kode Barang</label>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Kode Barang</label>
 
-                  <?php
-                  include ("../koneksi.php");
-                  $supp = ("SELECT * FROM tb_barang");
-                  $result = mysqli_query($koneksi, $supp);
+                <?php
+                include ("../koneksi.php");
+                $supp = ("SELECT * FROM tb_barang");
+                $result = mysqli_query($koneksi, $supp);
 
-                  $jsArray = "var prdName = new Array();";
+                $jsArray = "var prdName = new Array();";
 
-                  echo '<select name="kode_brg" onchange="changeValue(this.value)">';
-                  echo '<option>--- PILIH ---</option>';
+                echo '<select name="kode_brg" onchange="changeValue(this.value)">';
+                echo '<option>--- PILIH ---</option>';
 
-                  while ($row = mysqli_fetch_array($result)) {
-                    echo '<option value="' . $row['kode_brg'] . '">KDB' . $row['kode_brg'] . '</option>';
-                    $jsArray .= "prdName['" . $row['kode_brg'] . "'] 
+                while ($row = mysqli_fetch_array($result)) {
+                  echo '<option value="' . $row['kode_brg'] . '">KDB' . $row['kode_brg'] . '</option>';
+                  $jsArray .= "prdName['" . $row['kode_brg'] . "'] 
               = {nama_brg:'" . addslashes($row['nama_brg']) . "',
                 stok:'" . addslashes($row['stok']) . "', supplier:'" . addslashes($row['supplier']) . "'
               };";
-                  }
+                }
 
 
-                  echo '</select>';
-                  ?>
-                  <script type="text/javascript">
-                    <?php echo $jsArray; ?>
-                    function changeValue(id) {
-
-                      document.getElementById('prd_nmbrg').value = prdName[id].nama_brg;
-                      document.getElementById('prd_stk').value = prdName[id].stok;
-                      document.getElementById('prd_sup').value = prdName[id].supplier;
-                    }
-                  </script>
-
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Nama Barang</label>
-                  <input type="text" name="nama_brg" readonly="" id="prd_nmbrg" size="67">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Stok</label>
-                  <input type="text" class="form-control" id="prd_stk" name="stok" readonly=""
-                    aria-describedby="emailHelp" placeholder="Masukkan Stok Barang">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Jumlah Ajuan Permintaan</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="jml_ajuan"
-                    aria-describedby="emailHelp" placeholder="Masukkan Jumlah Permintaan">
-                  <small id="emailHelp" class="form-text text-muted">Masukkan Jumlah Permintaan</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Keterangan</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="keterangan"
-                    aria-describedby="emailHelp" placeholder="Masukkan Keterangan">
-                  <small id="emailHelp" class="form-text text-muted">Masukkan Keterangan Pengajuan</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Petugas</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $r['nama']; ?>"
-                    readonly="" name="petugas" aria-describedby="emailHelp" placeholder="Masukkan Nama Admin">
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" name="simpan" class="btn btn-primary">Save changes</button>
-            </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="table-responsive table--no-card m-b-30">
-          <table class="table table-bordered table-striped table-earning">
-            <thead>
-              <tr>
-                <th>No Ajuan</th>
-                <th>Tanggal</th>
-                <th>Kode Barang</th>
-                <th>Nama Barang</th>
-                <th>Jumlah Permintaan Keluar</th>
-                <th>Keterangan</th>
-                <th>Petugas</th>
-                <th>Validasi</th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              include 'paging.php';
-              ?>
-            </tbody>
-          </table>
-          <center>
-            <ul class="pagination justify-content-center">
-              <li class="page-item">
-                <a class="page-link" <?php if ($halaman > 1) {
-                  echo "href='?m=ajuan&s=awal&halaman=$previous'";
-                } ?>>Previous</a>
-              </li>
-              <?php
-              for ($x = 1; $x <= $total_halaman; $x++) {
+                echo '</select>';
                 ?>
-                <li class="page-item"><a class="page-link" href="?m=ajuan&s=awal&halaman=<?php echo $x ?>">
-                    <?php echo $x; ?>
-                  </a></li>
-                <?php
-              }
-              ?>
-              <li class="page-item">
-                <a class="page-link" <?php if ($halaman < $total_halaman) {
-                  echo "href='?m=ajuan&s=awal&halaman=$next'";
-                } ?>>Next</a>
-              </li>
-            </ul>
-          </center>
+                <script type="text/javascript">
+                  <?php echo $jsArray; ?>
+                  function changeValue(id) {
+
+                    document.getElementById('prd_nmbrg').value = prdName[id].nama_brg;
+                    document.getElementById('prd_stk').value = prdName[id].stok;
+                    document.getElementById('prd_sup').value = prdName[id].supplier;
+                  }
+                </script>
+
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nama Barang</label>
+                <input type="text" name="nama_brg" readonly="" id="prd_nmbrg" size="67">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Stok</label>
+                <input type="text" class="form-control" id="prd_stk" name="stok" readonly=""
+                  aria-describedby="emailHelp" placeholder="Masukkan Stok Barang">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Jumlah Ajuan Permintaan</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="jml_ajuan"
+                  aria-describedby="emailHelp" placeholder="Masukkan Jumlah Permintaan">
+                <small id="emailHelp" class="form-text text-muted">Masukkan Jumlah Permintaan</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Keterangan</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="keterangan"
+                  aria-describedby="emailHelp" placeholder="Masukkan Keterangan">
+                <small id="emailHelp" class="form-text text-muted">Masukkan Keterangan Pengajuan</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1"> Nama Petugas</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $r['nama']; ?>"
+                  name="petugas" aria-describedby="emailHelp" placeholder="Masukkan Nama Petugas">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" name="simpan" class="btn btn-primary">Save changes</button>
+          </div>
+          </form>
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="table-responsive table--no-card m-b-30">
+        <table class="table table-bordered table-striped table-earning">
+          <thead>
+            <tr>
+              <th>No Ajuan</th>
+              <th>Tanggal</th>
+              <th>Kode Barang</th>
+              <th>Nama Barang</th>
+              <th>Jumlah Permintaan Keluar</th>
+              <th>Keterangan</th>
+              <th>Petugas</th>
+              <th>Validasi</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            include 'paging.php';
+            ?>
+          </tbody>
+        </table>
+        <center>
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" <?php if ($halaman > 1) {
+                echo "href='?m=ajuan&s=awal&halaman=$previous'";
+              } ?>>Previous</a>
+            </li>
+            <?php
+            for ($x = 1; $x <= $total_halaman; $x++) {
+              ?>
+              <li class="page-item"><a class="page-link" href="?m=ajuan&s=awal&halaman=<?php echo $x ?>">
+                  <?php echo $x; ?>
+                </a></li>
+              <?php
+            }
+            ?>
+            <li class="page-item">
+              <a class="page-link" <?php if ($halaman < $total_halaman) {
+                echo "href='?m=ajuan&s=awal&halaman=$next'";
+              } ?>>Next</a>
+            </li>
+          </ul>
+        </center>
+      </div>
+    </div>
+  </div>
   </div>
 
 
@@ -264,7 +264,8 @@ $jamSekarang = date("h:i a");
         <div class="row">
           <div class="col-lg-12">
             <p class="text-muted" style="font-size: 16px;">Copyright &copy;
-              <script>document.write(new Date().getFullYear());</script> Sistem Inventory Barang BPS. All rights reserved
+              <script>document.write(new Date().getFullYear());</script> Sistem Inventory Barang BPS. All rights
+              reserved
             </p>
           </div>
         </div>
@@ -279,4 +280,5 @@ $jamSekarang = date("h:i a");
   <script src="../vendor/css/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
