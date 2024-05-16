@@ -334,13 +334,13 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
             <ul class="pagination justify-content-center">
               <li class="page-item">
                 <a class="page-link" <?php if ($halaman > 1) {
-                  echo "href='?m=barangMasuk&s=awal&halaman=$previous'";
+                  echo "href='?m=barangKeluar&s=awal&halaman=$previous'";
                 } ?>>Previous</a>
               </li>
               <?php
               for ($x = 1; $x <= $total_halaman; $x++) {
                 ?>
-                <li class="page-item"><a class="page-link" href="?m=barangMasuk&s=awal&halaman=<?php echo $x ?>">
+                <li class="page-item"><a class="page-link" href="?m=barangKeluar&s=awal&halaman=<?php echo $x ?>">
                     <?php echo $x; ?>
                   </a></li>
                 <?php
@@ -348,7 +348,7 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
               ?>
               <li class="page-item">
                 <a class="page-link" <?php if ($halaman < $total_halaman) {
-                  echo "href='?m=barangMasuk&s=awal&halaman=$next'";
+                  echo "href='?m=barangKeluar&s=awal&halaman=$next'";
                 } ?>>Next</a>
               </li>
             </ul>
