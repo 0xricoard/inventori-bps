@@ -27,7 +27,17 @@ $jamSekarang = date("h:i a");
 
   <!-- tema css -->
   <link href="../css/tampilanadmin.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -153,7 +163,7 @@ $jamSekarang = date("h:i a");
                 echo '<option>--- PILIH ---</option>';
 
                 while ($row = mysqli_fetch_array($result)) {
-                  echo '<option value="' . $row['kode_brg'] . '">KDB' . $row['kode_brg'] . '</option>';
+                  echo '<option value="' . $row['kode_brg'] . '">' . $row['kode_brg'] . '</option>';
                   $jsArray .= "prdName['" . $row['kode_brg'] . "'] 
               = {nama_brg:'" . addslashes($row['nama_brg']) . "',
                 stok:'" . addslashes($row['stok']) . "', supplier:'" . addslashes($row['supplier']) . "'
