@@ -155,7 +155,7 @@ $jamSekarang = date("h:i a");
                 echo '<option>--- PILIH ---</option>';
 
                 while ($row = mysqli_fetch_array($result)) {
-                  echo '<option value="' . $row['kode_brg'] . '">KDB' . $row['kode_brg'] . '</option>';
+                  echo '<option value="' . $row['kode_brg'] . '">' . $row['kode_brg'] . '</option>';
                   $jsArray .= "prdName['" . $row['kode_brg'] . "'] 
               = {nama_brg:'" . addslashes($row['nama_brg']) . "',
                 stok:'" . addslashes($row['stok']) . "', supplier:'" . addslashes($row['supplier']) . "'

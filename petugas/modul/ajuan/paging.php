@@ -11,7 +11,8 @@ $next = $halaman + 1;
 if (isset($_POST['tbcari'])) {
     $cari = $_POST['cari'];
     // Pencarian dengan menggabungkan beberapa kolom
-    $query = "SELECT * FROM tb_ajuan WHERE 
+    $query = "SELECT * FROM tb_ajuan WHERE
+              no_ajuan LIKE '%" . $cari . "%' OR  
               nama_brg LIKE '%" . $cari . "%' OR 
               kode_brg LIKE '%" . $cari . "%' OR 
               tanggal LIKE '%" . $cari . "%' OR 

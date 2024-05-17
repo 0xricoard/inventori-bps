@@ -184,7 +184,7 @@ $nomor_barang_keluar = mt_rand(1000, 9999);
                   echo '<option>--- PILIH ---</option>';
 
                   while ($row = mysqli_fetch_array($result)) {
-                    echo '<option value="' . $row['no_ajuan'] . '">AJ0' . $row['no_ajuan'] . '</option>';
+                    echo '<option value="' . $row['no_ajuan'] . '">' . $row['no_ajuan'] . '</option>';
                     $jsArray .= "prdName['" . $row['no_ajuan'] . "'] 
                 = {
                   tanggal_ajuan:'" . addslashes($row['tanggal']) . "',
