@@ -126,7 +126,7 @@ $jamSekarang = date("h:i a");
             </button>
           </div>
           <div class="modal-body">
-            <form action="?m=ajuan&s=simpan" method="POST" enctype="multipart/form-data">
+            <form action="?m=ajuanPembelian&s=simpan" method="POST" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="exampleInputEmail1">No Ajuan</label>
                 <!-- Isi nilai input nomor barang keluar dengan nomor yang dihasilkan -->
