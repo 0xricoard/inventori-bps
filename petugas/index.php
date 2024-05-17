@@ -6,7 +6,7 @@ $jawal="Petugas || INV Petugas";
 switch($modul){
     case 'awal': default: $aktif="Beranda"; $judul="Beranda $jawal"; include "awal.php"; break;
     case 'barangMasuk': $aktif="Barang Masuk"; $judul="Modul Barang Masuk "; include "modul/barangMasuk/index.php"; break;
-    case 'ajuan': $aktif="Ajuan"; $judul="Modul Ajuan"; include "modul/ajuan/index.php"; break;
+    case 'ajuan': $aktif="Ajuan"; $judul="Modul Ajuan Barang Keluar"; include "modul/ajuan/index.php"; break;
     case 'ajuanPembelian': $aktif="Ajuan"; $judul="Modul Ajuan Pembelian"; include "modul/ajuanPembelian/index.php"; break;
     
    
