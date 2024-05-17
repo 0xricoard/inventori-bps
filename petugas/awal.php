@@ -100,10 +100,14 @@ if (!isset($_SESSION["idinv2"])) {
                 <i class="fa fa-cart-arrow-down"></i> Data Barang Masuk
               </a>
             </li>
-
             <li>
               <a href="?m=ajuan&s=awal">
                 <i class="fa fa-gift"></i> Data Ajuan Barang Keluar
+              </a>
+            </li>
+            <li>
+              <a href="?m=ajuanPembelian&s=awal">
+                <i class="fa fa-gift"></i> Data Ajuan Pembelian Barang
               </a>
             </li>
             <li>
@@ -172,7 +176,7 @@ if (!isset($_SESSION["idinv2"])) {
                   $r = mysqli_fetch_assoc($query);
                   echo "<h3>" . $r['jajuan'] . "</h3>";
                   ?>
-                  <div>Jumlah Ajuan</div>
+                  <div>Jumlah Ajuan Barang Keluar</div>
                 </div>
               </div>
             </div>
@@ -185,7 +189,34 @@ if (!isset($_SESSION["idinv2"])) {
             </a>
           </div>
         </div>
-
+        <div class="col-lg-3 col-md-6">
+          <div class="panel panel-red">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-3">
+                  <i class="fa fa-gift fa-5x"></i>
+                </div>
+                <div class="col-xs-9 text-right">
+                  <?php
+                  include_once "../koneksi.php";
+                  $sql = "SELECT count(no_ajuan) as jajuan FROM tb_ajuan_pembelian";
+                  $query = mysqli_query($koneksi, $sql);
+                  $r = mysqli_fetch_assoc($query);
+                  echo "<h3>" . $r['jajuan'] . "</h3>";
+                  ?>
+                  <div>Jumlah Ajuan Pembelian Barang</div>
+                </div>
+              </div>
+            </div>
+            <a href="#">
+              <div class="panel-footer">
+                <span class="pull-left"><a href="?m=ajuanPembelian&s=awal">View Details</a></span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+              </div>
+            </a>
+          </div>
+        </div>
         <div class="col-lg-3 col-md-6">
           <div class="panel panel-red">
             <div class="panel-heading">
@@ -214,12 +245,37 @@ if (!isset($_SESSION["idinv2"])) {
             </a>
           </div>
         </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="panel panel-red">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-3">
+                  <i class="fa fa-check-square-o fa-5x"></i>
+                </div>
+                <div class="col-xs-9 text-right">
+                  <?php
+                  include_once "../koneksi.php";
+                  $sql = "SELECT count(val) as jval FROM tb_ajuan_pembelian WHERE val='0'";
+                  $query = mysqli_query($koneksi, $sql);
+                  $r = mysqli_fetch_assoc($query);
+                  echo "<h3>" . $r['jval'] . "</h3>";
+                  ?>
+                  <div>Jumlah Ajuan Yang Disetujui</div>
+                </div>
+              </div>
+            </div>
+            <a href="#">
+              <div class="panel-footer">
+                <span class="pull-left"><a href="?m=ajuanPembelian&s=awal">View Details</a></span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
-
-
     </div>
   </div>
-
 
   <!-- Footer -->
   <footer class="text-center">

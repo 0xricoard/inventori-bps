@@ -80,11 +80,13 @@ $jamSekarang = date("h:i a");
                 <i class="fa fa-cart-arrow-down"></i> Data Barang Masuk
               </a>
             </li>
+
             <li>
               <a href="?m=ajuan&s=awal">
                 <i class="fa fa-gift"></i> Data Ajuan Barang Keluar
               </a>
             </li>
+            <li>
             <li>
               <a href="?m=ajuanPembelian&s=awal">
                 <i class="fa fa-gift"></i> Data Ajuan Pembelian Barang
@@ -103,7 +105,7 @@ $jamSekarang = date("h:i a");
   <div id="page-wrapper">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header">Data Ajuan</h1>
+        <h1 class="page-header">Data Ajuan Pembelian Barang</h1>
       </div>
     </div>
 
@@ -184,7 +186,7 @@ $jamSekarang = date("h:i a");
                   aria-describedby="emailHelp" placeholder="Masukkan Stok Barang">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Jumlah Ajuan Permintaan</label>
+                <label for="exampleInputEmail1">Jumlah Ajuan Pembelian</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" name="jml_ajuan"
                   aria-describedby="emailHelp" placeholder="Masukkan Jumlah Permintaan">
                 <small id="emailHelp" class="form-text text-muted">Masukkan Jumlah Permintaan</small>
@@ -245,13 +247,13 @@ $jamSekarang = date("h:i a");
       </div>
     </div>
     <div class="row">
-      <center>
-        <form action="" method="POST">
-          <label>Cari Data Ajuan Barang Keluar</label>
-          <input type="text" name="cari"> <button type="submit" name="tbcari" class="btn btn-success">Cari</button>
-        </form>
-      </center>
-    </div>
+        <center>
+          <form action="" method="POST">
+            <label>Cari Data Ajuan Pembelian</label>
+            <input type="text" name="cari"> <button type="submit" name="tbcari" class="btn btn-success">Cari</button>
+          </form>
+        </center>
+      </div>
     <div class="row">
       <div class="table-responsive table--no-card m-b-30">
         <table class="table table-bordered table-striped table-earning">
@@ -278,13 +280,13 @@ $jamSekarang = date("h:i a");
           <ul class="pagination justify-content-center">
             <li class="page-item">
               <a class="page-link" <?php if ($halaman > 1) {
-                echo "href='?m=ajuan&s=awal&halaman=$previous'";
+                echo "href='?m=ajuanPembelian&s=awal&halaman=$previous'";
               } ?>>Previous</a>
             </li>
             <?php
             for ($x = 1; $x <= $total_halaman; $x++) {
               ?>
-              <li class="page-item"><a class="page-link" href="?m=ajuan&s=awal&halaman=<?php echo $x ?>">
+              <li class="page-item"><a class="page-link" href="?m=ajuanPembelian&s=awal&halaman=<?php echo $x ?>">
                   <?php echo $x; ?>
                 </a></li>
               <?php
@@ -292,7 +294,7 @@ $jamSekarang = date("h:i a");
             ?>
             <li class="page-item">
               <a class="page-link" <?php if ($halaman < $total_halaman) {
-                echo "href='?m=ajuan&s=awal&halaman=$next'";
+                echo "href='?m=ajuanPembelian&s=awal&halaman=$next'";
               } ?>>Next</a>
             </li>
           </ul>

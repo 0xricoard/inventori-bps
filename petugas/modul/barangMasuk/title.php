@@ -80,10 +80,14 @@ $jamSekarang = date("h:i");
                 <i class="fa fa-cart-arrow-down"></i> Data Barang Masuk
               </a>
             </li>
-
             <li>
               <a href="?m=ajuan&s=awal">
                 <i class="fa fa-gift"></i> Data Ajuan Barang Keluar
+              </a>
+            </li>
+            <li>
+              <a href="?m=ajuanPembelian&s=awal">
+                <i class="fa fa-gift"></i> Data Ajuan Pembelian Barang
               </a>
             </li>
             <li>
