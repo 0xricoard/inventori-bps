@@ -205,7 +205,14 @@ $jamSekarang = date("h:i a");
         </div>
       </div>
     </div>
-
+    <div class="row">
+        <center>
+          <form action="" method="POST">
+            <label>Cari Data Ajuan Barang Keluar</label>
+            <input type="text" name="cari"> <button type="submit" name="tbcari" class="btn btn-success">Cari</button>
+          </form>
+        </center>
+      </div>
     <div class="row">
       <div class="table-responsive table--no-card m-b-30">
         <table class="table table-bordered table-striped table-earning">
@@ -215,7 +222,7 @@ $jamSekarang = date("h:i a");
               <th>Tanggal</th>
               <th>Kode Barang</th>
               <th>Nama Barang</th>
-              <th>Jumlah Permintaan Keluar</th>
+              <th>Jumlah Permintaan</th>
               <th>Keterangan</th>
               <th>Petugas</th>
               <th>Validasi</th>
