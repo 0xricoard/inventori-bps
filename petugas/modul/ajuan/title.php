@@ -144,7 +144,7 @@ $jamSekarang = date("h:i a");
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Tanggal</label>
-                <input type="text" class="form-control" value="<?php echo $tanggalSekarang; ?>" id="exampleInputEmail1"
+                <input type="date" class="form-control" value="<?php echo $tanggalSekarang; ?>" id="exampleInputEmail1"
                   name="tanggal" aria-describedby="emailHelp" placeholder="Masukkan Tanggal">
                 <small id="emailHelp" class="form-text text-muted">Masukkan Tanggal</small>
               </div>
